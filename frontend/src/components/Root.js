@@ -4,12 +4,14 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import App from '../App'
 import LoginPage from '../containers/LoginPage'
+import UserPage from '../containers/UserPage'
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <Route exact path="/" component={App}/>
-      <Route exact path="/login" component={LoginPage} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/:username" component={UserPage} />
     </Router>
   </Provider>
 )

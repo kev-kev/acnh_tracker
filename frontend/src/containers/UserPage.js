@@ -5,8 +5,7 @@ import NavBar from '../components/NavBar'
 export const UserPage = () => {
   return (
     <div>
-      <NavBar />
-      <h1>{this.props.user.username}</h1>
+      {/* <h1>{this.props.user.username}</h1> */}
     </div>
   )
 }

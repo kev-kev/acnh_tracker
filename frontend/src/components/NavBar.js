@@ -1,11 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 
 const NavBar = () => {
 
   const redirectUrl = () => {
     // if signed in, link to /:user, if not, link to /
+    // debugger
+    // if(this.props.user){
+    //   return "logged in"
+    // } else {
+    //   return "not logged in"
+    // }
   }
 
   return (
@@ -17,4 +24,8 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps)(NavBar)

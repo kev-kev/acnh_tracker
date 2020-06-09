@@ -11,8 +11,13 @@ export const fetchUser = (userInfo) => dispatch => {
 })
     .then(r => r.json())
     .then(data => {
-      localStorage.setItem('token', data.token)
-      dispatch(setUser(data.user))
+      console.log(data)
+      if (data.message){
+        alert(data.message)
+      } else {
+        localStorage.setItem('token', data.token)
+        dispatch(setUser(data.user))
+      }
     })
 }
 
@@ -29,8 +34,12 @@ export const signUserUp = (userInfo) => dispatch => {
     .then(r => r.json())
     .then(data => {
       console.log(data)
-      localStorage.setItem('token', data.token)
-      dispatch(setUser(data.user))
+      if(data.message){
+        alert(data.message)
+      } else {
+        localStorage.setItem('token', data.token)
+        dispatch(setUser(data.user))
+      }
     })
 }
 

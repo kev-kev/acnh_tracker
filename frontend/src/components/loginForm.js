@@ -19,7 +19,6 @@ export class LoginForm extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     this.props.fetchUser(this.state)
-    debugger
   }
 
   render() {
