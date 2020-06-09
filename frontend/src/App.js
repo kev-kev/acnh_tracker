@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css';
-import LoginForm from './components/loginForm'
 import SignupForm from './components/signupForm'
 import { fetchUser, signUserUp, autoLogin } from './actions/userActions'
+import Navbar from './components/NavBar'
+import { Link } from 'react-router-dom'
 
 class App extends Component {
 
@@ -14,12 +15,9 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        {
-          !this.props.userReducer.loggedIn ? <h1>Sign up or Login!</h1> : <h1>Welcome, {this.props.userReducer.user.username}</h1>
-        }
+        <Navbar />   
         <SignupForm />
-        <LoginForm />
-        <button>Logout</button>
+        <Link to='/login'>Log In</Link> 
       </div>
     )
   }
@@ -27,7 +25,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userReducer: state.userReducer
+    loggedIn: state.userReducer.loggedIn,
+    user: state.userReducer.user
   }
 }
 

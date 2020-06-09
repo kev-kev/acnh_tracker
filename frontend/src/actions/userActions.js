@@ -1,8 +1,5 @@
 const setUser = (payload) => ({type: "SET_USER", payload})
 
-export const logUserOut = () => ({type: "LOG_OUT"})
-
-
 export const fetchUser = (userInfo) => dispatch => {
   fetch('http://localhost:4000/login/', {
     method: "POST",
@@ -35,6 +32,7 @@ export const signUserUp = (userInfo) => dispatch => {
       dispatch(setUser(data.user))
     })
 }
+
 
 export const autoLogin = () => dispatch => {
   fetch('http://localhost:4000/auto_login', {
