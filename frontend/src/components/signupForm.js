@@ -7,6 +7,7 @@ export class signupForm extends Component {
   state = {
     username: "",
     password: "",
+    password_confirmation: "",
     island_name: "",
     profile_pic: ""
   }
@@ -25,10 +26,12 @@ export class signupForm extends Component {
 
   render() {
     return (
-      <div id="signup-form">
+      <div className="signup-form">
+        <h4>Sign Up</h4>
         <form onSubmit={this.onSubmit}>
           <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleOnChange} /> <br />
           <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleOnChange} /> <br />
+          <input type="password" name="password_confirmation" placeholder="Confirm Password" value={this.state.passwordConfirmation} onChange={this.handleOnChange} /> <br />
           <input type="text" name="island_name" placeholder="Island Name" value={this.state.island_name} onChange={this.handleOnChange} /> <br />
           <input type="text" name="profile_pic" placeholder="Profile Picture (image links only)" value={this.state.profile_pic} onChange={this.handleOnChange} /> <br />
           <input type="submit" value="Create Account"/>

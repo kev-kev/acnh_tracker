@@ -19,11 +19,12 @@ export class LoginForm extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     this.props.fetchUser(this.state)
+    debugger
   }
 
   render() {
     return (
-      <div id="login-form">
+      <div className="login-form">
         <form onSubmit={this.onSubmit}>
           <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleOnChange} /> <br />
           <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleOnChange} /> <br />

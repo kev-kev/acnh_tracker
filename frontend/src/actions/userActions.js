@@ -17,6 +17,7 @@ export const fetchUser = (userInfo) => dispatch => {
 }
 
 export const signUserUp = (userInfo) => dispatch => {
+  console.log(userInfo);
   fetch('http://localhost:4000/users/', {
     method: "POST",
     headers: {
@@ -27,7 +28,7 @@ export const signUserUp = (userInfo) => dispatch => {
 })
     .then(r => r.json())
     .then(data => {
-      console.log('Created!')
+      console.log(data)
       localStorage.setItem('token', data.token)
       dispatch(setUser(data.user))
     })

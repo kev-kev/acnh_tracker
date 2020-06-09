@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div id="App">
         <Navbar />   
-        <SignupForm />
+        <SignupForm /><br />
         <Link to='/login'>Log In</Link> 
       </div>
     )
