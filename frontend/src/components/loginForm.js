@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchUser } from '../actions/userActions'
+import { Redirect } from 'react-router'
+
 
 export class LoginForm extends Component {
 
@@ -21,15 +23,28 @@ export class LoginForm extends Component {
     this.props.fetchUser(this.state)
   }
 
+  renderLoginFormOrRedirect = () => {
+    if (this.props.successfulLogin) {
+      return (
+        <Redirect to={`/${this.state.username}`}/>
+        // <Redirect to="/user" />
+      )
+    } else {
+      return (
+        <div className="login-form">
+          <form onSubmit={this.onSubmit}>
+            <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleOnChange} /> <br />
+            <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleOnChange} /> <br />
+            <input type="submit" value="Login"/>
+          </form>
+        </div>
+      )
+    }
+  }
+
   render() {
     return (
-      <div className="login-form">
-        <form onSubmit={this.onSubmit}>
-          <input type="text" name="username" placeholder="Username" value={this.state.username} onChange={this.handleOnChange} /> <br />
-          <input type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleOnChange} /> <br />
-          <input type="submit" value="Login"/>
-        </form>
-      </div>
+      this.renderLoginFormOrRedirect()
     )
   }
 }
@@ -40,4 +55,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(null, mapDispatchToProps)(LoginForm)
+const mapStateToProps = (state) => {
+  return {
+    successfulLogin: state.userReducer.loggedIn
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)

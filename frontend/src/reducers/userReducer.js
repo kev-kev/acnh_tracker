@@ -1,6 +1,6 @@
 const defaultState = {
   loggedIn: false,
-  user: {}
+  user: {},
 }
 
 const userReducer = (state = defaultState, action) => {

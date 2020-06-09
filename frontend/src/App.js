@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom'
 
 class App extends Component {
 
-  componentDidMount(){
-    this.props.autoLogin()
-  }
+  // componentDidMount(){
+  //   this.props.autoLogin()
+  // }
 
   render() {
     return (
@@ -37,7 +37,7 @@ const mapDispatchToProps = (dispatch) => {
 
     fetchUser: () => dispatch(fetchUser(this.props.userReducer.user)),
     signUserUp: () => dispatch(signUserUp(this.props.userReducer.user)),
-    autoLogin: () => dispatch(autoLogin())
+    // autoLogin: () => dispatch(autoLogin())
 
   }
 }
