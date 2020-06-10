@@ -1,10 +1,10 @@
 import userReducer from './userReducer'
-import commentReducer from './commentReducer'
+import logReducer from './logReducer'
 import { combineReducers } from "redux";
 
 const rootReducer = combineReducers({
   userReducer,
-  commentReducer
+  logReducer
 })
 
 export default rootReducer
