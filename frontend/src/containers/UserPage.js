@@ -13,7 +13,7 @@ export class UserPage extends Component {
           <NavBar />
           <h1>{this.props.user.username}</h1><br />
           <h1>{this.props.user.island_name}</h1>
-          {/* <LogContainer /> */}
+          <LogContainer />
         </div>
       )
     } else {
