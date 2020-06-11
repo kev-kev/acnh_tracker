@@ -14,14 +14,18 @@ export const fetchUser = userInfo => {
       })
     .then(r => {
       if (r.ok){
-        r.json()
+        return r.json()
       } else {
         dispatch(logOut())
+        throw new Error("uWu oh no! something went horribly wrong T_T")
       }
     })
     .then(data => {
       localStorage.setItem('token', data.token)
       dispatch(setUser(data.user));
+    })
+    .catch((error) => {
+      console.log(error)
     })
   };
 }

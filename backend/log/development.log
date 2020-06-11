@@ -2427,3 +2427,59 @@ Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocati
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(5073945470573576205)[0m
   [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
   [1m[36mVisitor Load (0.3ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/login/" for ::1 at 2020-06-11 14:16:02 -0400
+  [1m[35m (6.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"4", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "4"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 401 Unauthorized in 9ms (Views: 1.0ms | ActiveRecord: 1.7ms | Allocations: 4091)
+
+
+Started POST "/login/" for ::1 at 2020-06-11 14:16:19 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"4", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "4"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 401 Unauthorized in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 812)
+
+
+Started POST "/login/" for ::1 at 2020-06-11 14:16:26 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"4", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "4"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 812)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/login/" for ::1 at 2020-06-11 14:16:47 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.76ms)
+Completed 202 Accepted in 252ms (Views: 3.2ms | ActiveRecord: 2.7ms | Allocations: 8678)
+
+
+Started POST "/login/" for ::1 at 2020-06-11 14:17:50 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 202 Accepted in 235ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 1043)
+
+
+Started POST "/login/" for ::1 at 2020-06-11 14:21:26 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 202 Accepted in 233ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
