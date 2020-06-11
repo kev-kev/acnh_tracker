@@ -1,26 +1,5 @@
 const setUser = (payload) => ({type: "SET_USER", payload})
-
-// export const fetchUser = (userInfo) => dispatch => {
-//   dispatch({type: "FETCH_USER", {}})
-//   fetch('http://localhost:4000/login/', {
-//     method: "POST",
-//     headers: {
-//         'Content-Type': 'application/json',
-//         Accept: 'application/json'
-//     },
-//     body: JSON.stringify(userInfo)
-//     })
-//     .then(r => r.json())
-//     .then(data => {
-//       if (data.message){
-//         console.log(data.message)
-//       } else {
-//         localStorage.setItem('token', data.token)
-//         dispatch(setUser(data.user))
-//         dispatch(setLoggedInSuccessful());
-//       }
-//     })
-// }
+const logOut = () => ({type: "LOG_OUT"})
 
 export const fetchUser = userInfo => {
   return (dispatch) => {
@@ -33,13 +12,16 @@ export const fetchUser = userInfo => {
       },
       body: JSON.stringify(userInfo)
       })
-    .then(r => r.json())
-    .then(data => {
-      if (data.message){
+    .then(r => {
+      if (r.ok){
+        r.json()
       } else {
-        localStorage.setItem('token', data.token)
-        dispatch(setUser(data.user));
+        dispatch(logOut())
       }
+    })
+    .then(data => {
+      localStorage.setItem('token', data.token)
+      dispatch(setUser(data.user));
     })
   };
 }

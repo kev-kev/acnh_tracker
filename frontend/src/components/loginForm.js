@@ -24,6 +24,7 @@ export class LoginForm extends Component {
   }
 
   renderLoginFormOrRedirect = () => {
+    
     if (this.props.successfulLogin) {
       return (
         <Redirect to={`/${this.state.username}`}/>
