@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import NavBar  from '../components/NavBar'
-import LogContainer from './LogContainer'
+import Log from '../components/Log'
 
 export class UserPage extends Component {
   render() {
@@ -10,10 +10,10 @@ export class UserPage extends Component {
     if(this.props.user.username === this.props.match.params.username.toString()){
       return(
         <div>
-          <NavBar />
+         <NavBar />
           <h1>{this.props.user.username}</h1><br />
           <h1>{this.props.user.island_name}</h1>
-          <LogContainer />
+          <Log />
         </div>
       )
     } else {
