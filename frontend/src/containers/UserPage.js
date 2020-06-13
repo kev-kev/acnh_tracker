@@ -4,8 +4,15 @@ import { Redirect } from 'react-router'
 import NavBar  from '../components/NavBar'
 import LogContainer from './LogContainer'
 import { logUserOut } from '../actions/userActions'
+import { fetchVisitors } from '../actions/visitorActions'
+
 
 export class UserPage extends Component {
+
+  componentDidMount(){
+    this.props.fetchVisitors()
+  }
+
   render() {
     const renderUserPage = () => {
     if(this.props.user.username === this.props.match.params.username.toString()){
@@ -40,6 +47,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    fetchVisitors: () => dispatch(fetchVisitors()),    
     logUserOut: () => dispatch(logUserOut())
   }
 }
