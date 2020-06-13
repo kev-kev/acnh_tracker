@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Log from '../components/Log'
+import VisitorBox from '../components/VisitorBox'
 
 export class LogContainer extends Component {
 
@@ -14,46 +14,54 @@ export class LogContainer extends Component {
     })
   }
 
-  visitorHeaders = () => {
-    return(
-    <tr>
-      <td></td>
-      <th><img src={require("../assets/images/bae.png")} height="50"/><br />Celeste</th>
-      <th><img src={require("../assets/images/cj.png")} height="50"/><br />C.J.</th>
-      <th><img src={require("../assets/images/daisy_mae.png")} height="50"/><br />Daisy Mae</th>
-      <th><img src={require("../assets/images/flick.png")} height="50"/><br />Flick</th>
-      <th><img src={require("../assets/images/gulliver.png")} height="50"/><br />Gulliver</th>
-      <th><img src={require("../assets/images/kicks.png")} height="50"/><br />Kicks</th>
-      <th><img src={require("../assets/images/kk.png")} height="50"/><br />K.K. Slider</th>
-      <th><img src={require("../assets/images/label.png")} height="50"/><br />Label</th>
-      <th><img src={require("../assets/images/leif.png")} height="50"/><br />Leif</th>
-      <th><img src={require("../assets/images/redd.png")} height="50"/><br />Redd</th>
-      <th><img src={require("../assets/images/sahara.png")} height="50"/><br />Sahara</th>
-      <th><img src={require("../assets/images/wisp.png")} height="50"/><br />Wisp</th>
-    </tr>
-  )}
+  renderVisitorHeaders = () => {
+    if (this.props.visitors){
+      return this.props.visitors.map(visitor => {
+        return (
+          <VisitorBox visitor={visitor}/>
+        )
+      })
+    }
+  }
+
+  getWeekday = () => {
+    let d = new Date(this.state.date)
+    let weekday = new Array(7)
+    weekday[0] = "Monday";
+    weekday[1] = "Tuesday";
+    weekday[2] = "Wednesday";
+    weekday[3] = "Thursday";
+    weekday[4] = "Friday";
+    weekday[5] = "Saturday";
+    weekday[6] = "Sunday";
+    return weekday[d.getDay()]
+
+  }
+
+  handleDateChange = (e) => {
+    this.setState({
+      date: e.target.value
+    })
+  }
 
   render() {
     return (
-      <div>
-        <label for="date">Date</label>
-        <input type="date" value={this.state.date} id="date" min="2020-03-20"/>
-        <table classname="logTable">
-          {this.visitorHeaders}
-          <tr>
-            <th>Current Day Here</th>
-            {/* add on change handlers to checkboxes */}
-            <Log />
-            
-          </tr>
-        </table>
-      </div>
+      <>
+        <p className="date">{this.getWeekday()}</p><br />
+        <label htmlFor="date">Date</label>
+        <input type="date" value={this.state.date} id="date" min="2020-03-20" onChange={this.handleDateChange}/>
+        <div className="logTable">
+          <div className="visitorHeaders">
+            {this.renderVisitorHeaders()} 
+          </div> <br />
+        </div>
+      </>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  
+  visitors: state.visitorReducer.visitors
 })
 
 const mapDispatchToProps = {

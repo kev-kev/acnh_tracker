@@ -53,3 +53,26 @@ table {
 .switch{
   
 }
+
+.visitorIMG{
+  height: 50px;
+  width: 50px;
+}
+
+.visitorDiv{
+  text-align: center;
+  font-size: x-small;
+}
+
+.visitorHeaders{
+  display: flex;
+  /* flex-flow: column nowrap; */
+}
+
+.logRow{
+  display: flex;
+}
+
+.date{
+  text-align: center;
+}

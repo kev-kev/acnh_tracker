@@ -9,7 +9,6 @@ import { Link } from 'react-router-dom'
 class App extends Component {
 
   componentDidMount(){
-    console.log("mounted")
     // this.props.autoLogin()
   }
 

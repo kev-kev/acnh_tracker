@@ -6,17 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Assuming img will be used in src/folderName/fileName.js
 
-Visitor.create(name: "Celeste", img: "../assets/images/bae.png")
-Visitor.create(name: "CJ", img: "../assets/images/cj.png")
-Visitor.create(name: "Daisy Mae", img: "../assets/images/daisy_mae.png")
-Visitor.create(name: "Flick", img: "../assets/images/flick.png")
-Visitor.create(name: "Gulliver", img: "../assets/images/gulliver.png")
-Visitor.create(name: "Kicks", img: "../assets/images/kicks.png")
-Visitor.create(name: "K.K. Slider", img: "../assets/images/kk.png")
-Visitor.create(name: "Label", img: "../assets/images/label.png")
-Visitor.create(name: "Leif", img: "../assets/images/leif.png")
-Visitor.create(name: "Redd", img: "../assets/images/redd.png")
-Visitor.create(name: "Sahara", img: "../assets/images/sahara.png")
-Visitor.create(name: "Wisp", img: "../assets/images/wisp.png")
+
+base_url = "https://acnh-tracker-imgs.s3.amazonaws.com/"
+Visitor.create(name: "Celeste", img: base_url + "bae.png")
+Visitor.create(name: "C.J.", img: base_url + "cj.png")
+Visitor.create(name: "Daisy Mae", img: base_url + "daisy_mae.png")
+Visitor.create(name: "Flick", img: base_url + "flick.png")
+Visitor.create(name: "Gulliver", img: base_url + "gulliver.png")
+Visitor.create(name: "Kicks", img: base_url + "kicks.png")
+Visitor.create(name: "K.K.", img: base_url + "kk.png")
+Visitor.create(name: "Label", img: base_url + "label.png")
+Visitor.create(name: "Leif", img: base_url + "leif.png")
+Visitor.create(name: "Redd", img: base_url + "redd.png")
+Visitor.create(name: "Sahara", img: base_url + "sahara.png")
+Visitor.create(name: "Wisp", img: base_url + "wisp.png")
