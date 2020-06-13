@@ -3,7 +3,6 @@ const logOut = () => ({type: "LOG_OUT"})
 
 export const fetchUser = userInfo => {
   return (dispatch) => {
-    // dispatch({type: "FETCH_USERS"});
     fetch('http://localhost:4000/login/', {
       method: "POST",
       headers: {
@@ -47,6 +46,10 @@ export const signUserUp = (userInfo) => dispatch => {
         dispatch(setUser(data.user))
       }
     })
+}
+
+export const logUserOut = () => dispatch => {
+  dispatch(logOut())
 }
 
 

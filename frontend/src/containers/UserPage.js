@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import NavBar  from '../components/NavBar'
 import LogContainer from './LogContainer'
+import { logUserOut } from '../actions/userActions'
 
 export class UserPage extends Component {
   render() {
@@ -13,7 +14,8 @@ export class UserPage extends Component {
          <NavBar />
           <h1>{this.props.user.username}</h1><br />
           <h1>{this.props.user.island_name}</h1>
-          <LogContainer />
+          <LogContainer /><br />
+          <button onClick={this.props.logUserOut}>Log Out</button>
         </div>
       )
     } else {
@@ -36,5 +38,11 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(UserPage)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logUserOut: () => dispatch(logUserOut())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPage)
 

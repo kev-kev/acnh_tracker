@@ -12,7 +12,6 @@ class App extends Component {
   componentDidMount(){
     // this.props.autoLogin()
     this.props.fetchVisitors()
-    console.log("mounted")
   }
 
 
