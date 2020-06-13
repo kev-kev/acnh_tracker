@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import NavBar  from '../components/NavBar'
-import Log from '../components/Log'
+import LogContainer from './LogContainer'
 
 export class UserPage extends Component {
   render() {
@@ -13,7 +13,7 @@ export class UserPage extends Component {
          <NavBar />
           <h1>{this.props.user.username}</h1><br />
           <h1>{this.props.user.island_name}</h1>
-          <Log />
+          <LogContainer />
         </div>
       )
     } else {

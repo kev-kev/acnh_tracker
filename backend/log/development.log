@@ -2663,3 +2663,238 @@ Processing by AuthController#create as JSON
 Completed 202 Accepted in 232ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 1024)
 
 
+Started POST "/login/" for ::1 at 2020-06-11 18:03:43 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 202 Accepted in 238ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 1125)
+
+
+Started POST "/login/" for ::1 at 2020-06-12 10:40:29 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 202 Accepted in 247ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 1125)
+
+
+  [1m[36mVisitor Load (0.4ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for ::1 at 2020-06-13 11:09:27 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kevin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kevin/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 7.3ms | Allocations: 315)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.0ms | Allocations: 1591)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-06-13 11:09:27 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/login/" for ::1 at 2020-06-13 11:43:28 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.41ms)
+Completed 202 Accepted in 248ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 1158)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 11:45:31 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 202 Accepted in 239ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 1024)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 11:45:35 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/visitors"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/visitors/" for ::1 at 2020-06-13 11:45:57 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/visitors"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/visitors/" for ::1 at 2020-06-13 11:46:14 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/visitors"):
+  
+actionpack (6.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.1) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.1) lib/rails/engine.rb:527:in `call'
+puma (4.3.5) lib/puma/configuration.rb:228:in `call'
+puma (4.3.5) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.5) lib/puma/server.rb:472:in `process_client'
+puma (4.3.5) lib/puma/server.rb:328:in `block in run'
+puma (4.3.5) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/visitors/" for ::1 at 2020-06-13 11:52:11 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Filter chain halted as :authorized rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms | Allocations: 363)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 11:52:32 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:5:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 202 Accepted in 277ms (Views: 0.6ms | ActiveRecord: 14.3ms | Allocations: 7897)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 11:55:21 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.5ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (14.42ms)
+Completed 200 OK in 17ms (Views: 8.2ms | ActiveRecord: 6.6ms | Allocations: 8224)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 11:55:26 -0400
+  
+ArgumentError (Before process_action callback :authorized has not been defined):
+  
+app/controllers/auth_controller.rb:2:in `<class:AuthController>'
+app/controllers/auth_controller.rb:1:in `<main>'
+Started POST "/login/" for ::1 at 2020-06-13 11:58:55 -0400
+  
+ArgumentError (Before process_action callback :authorized has not been defined):
+  
+app/controllers/auth_controller.rb:2:in `<class:AuthController>'
+app/controllers/auth_controller.rb:1:in `<main>'
+Started GET "/visitors/" for ::1 at 2020-06-13 12:02:58 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (6.5ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (30.83ms)
+Completed 200 OK in 40ms (Views: 17.9ms | ActiveRecord: 14.1ms | Allocations: 8058)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 12:03:16 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `create'
+Completed 500 Internal Server Error in 315ms (ActiveRecord: 2.8ms | Allocations: 44328)
+
+
+  
+NoMethodError (undefined method `encode_token' for #<AuthController:0x00007f92645117a8>):
+  
+app/controllers/auth_controller.rb:6:in `create'
+Started POST "/login/" for ::1 at 2020-06-13 12:03:23 -0400
+Processing by AuthController#create as JSON
+  Parameters: {"auth"=>{"username"=>"4", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "4"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:4:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.05ms)
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 784)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 12:08:02 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"auth"=>{"username"=>"4", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "4"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 401 Unauthorized in 3ms (Views: 0.6ms | ActiveRecord: 1.8ms | Allocations: 1122)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 12:08:10 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"auth"=>{"username"=>"1", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.52ms)
+Completed 202 Accepted in 258ms (Views: 1.0ms | ActiveRecord: 1.8ms | Allocations: 5916)
+
+

@@ -3,14 +3,19 @@ import { connect } from 'react-redux'
 import './App.css';
 import SignupForm from './components/signupForm'
 import { fetchUser, signUserUp, autoLogin } from './actions/userActions'
+import { fetchVisitors } from './actions/visitorActions'
 import Navbar from './components/NavBar'
 import { Link } from 'react-router-dom'
 
 class App extends Component {
 
-  // componentDidMount(){
-  //   this.props.autoLogin()
-  // }
+  componentDidMount(){
+    // this.props.autoLogin()
+    this.props.fetchVisitors()
+    console.log("mounted")
+  }
+
+
 
   render() {
     return (
@@ -32,9 +37,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // check this.props.userReducer.user
-    // do i use something else to get the userinfo? how do i know....
-
+    fetchVisitors: () => dispatch(fetchVisitors()),    
     fetchUser: () => dispatch(fetchUser(this.props.userReducer.user)),
     signUserUp: () => dispatch(signUserUp(this.props.userReducer.user)),
     // autoLogin: () => dispatch(autoLogin())
