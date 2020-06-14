@@ -41,15 +41,6 @@
   
 }
 
-td {
-  text-align: center;
-  vertical-align: middle;
-}
-
-table {
-  border: 1px solid;
-}
-
 .switch{
   
 }
@@ -66,12 +57,18 @@ table {
 
 .visitorHeaders{
   display: flex;
-  /* flex-flow: column nowrap; */
+  justify-content: center;
 }
 
-.logRow{
+.logContainer{
   display: flex;
+  /* justify-content: center; */
 }
+
+/* .logRow{
+  display: flex;
+  justify-content: center;
+} */
 
 .date{
   text-align: center;

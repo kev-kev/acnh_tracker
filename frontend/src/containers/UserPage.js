@@ -20,7 +20,7 @@ export class UserPage extends Component {
          <NavBar />
           <h1>{this.props.user.username}</h1><br />
           <h1>{this.props.user.island_name}</h1>
-          <LogContainer /><br />
+          <LogContainer className="logContainer"/><br />
           <button onClick={this.props.logUserOut}>Log Out</button>
         </div>
       )

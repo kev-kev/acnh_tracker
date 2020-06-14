@@ -5,7 +5,8 @@ import VisitorBox from '../components/VisitorBox'
 export class LogContainer extends Component {
 
   state = {
-    date: ""
+    date: "",
+    visitors: []
   }
 
   componentDidMount(){
@@ -14,11 +15,29 @@ export class LogContainer extends Component {
     })
   }
 
+  handleOnChange = (e) => {
+    let targetVisitor = e.target.id
+    if (e.target.checked){
+      this.setState({
+        visitors: [...this.state.visitors, targetVisitor]
+      })
+      console.log(this.state)
+    } else {
+      let visitorsArr = this.state.visitors
+      let idx = visitorsArr.findIndex(visitor => visitor === targetVisitor)
+      let newVisitors = [...this.state.visitors.slice(0, idx), ...this.state.visitors.slice(idx + 1)]
+      this.setState({
+        visitors: newVisitors
+      })
+      console.log(this.state)
+    }
+  }
+
   renderVisitorHeaders = () => {
     if (this.props.visitors){
       return this.props.visitors.map(visitor => {
         return (
-          <VisitorBox visitor={visitor}/>
+          <VisitorBox visitor={visitor} handleOnChange={this.handleOnChange}/>
         )
       })
     }
@@ -44,6 +63,14 @@ export class LogContainer extends Component {
     })
   }
 
+  saveLog = () => {
+    // Dispatch action with date + visitors in payload
+    console.log("Saving Log")
+  }
+
+  // when log is submitted, need to iterate through visitors in state
+  // dispatch an action that will persist that visitorID+date+userID to the backend
+
   render() {
     return (
       <>
@@ -55,6 +82,7 @@ export class LogContainer extends Component {
             {this.renderVisitorHeaders()} 
           </div> <br />
         </div>
+        <button onClick={this.saveLog}> Submit </button>
       </>
     )
   }
