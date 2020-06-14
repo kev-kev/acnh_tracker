@@ -1,5 +1,6 @@
 const setUser = (payload) => ({type: "SET_USER", payload})
 const logOut = () => ({type: "LOG_OUT"})
+const signedUp = () => ({type: "SIGNED_UP"})
 
 export const fetchUser = userInfo => {
   return (dispatch) => {
@@ -38,17 +39,23 @@ export const signUserUp = (userInfo) => dispatch => {
     },
     body: JSON.stringify(userInfo)
 })
-    .then(r => r.json())
-    .then(data => {
-      if(data.message){
+    .then(r => {
+      if (r.ok){
+        return r.json()
       } else {
-        localStorage.setItem('token', data.token)
-        dispatch(setUser(data.user))
+        throw new Error("uWu oh no! something went horribly wrong T_T")
       }
+    })
+    .then(data => {
+      dispatch(signedUp())
+    })
+    .catch((error) => {
+      console.log(error)
     })
 }
 
 export const logUserOut = () => dispatch => {
+  console.log("logging out")
   dispatch(logOut())
 }
 

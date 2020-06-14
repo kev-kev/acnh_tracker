@@ -5,9 +5,7 @@ const defaultState = {
 const visitorReducer = (state = defaultState, action) => {
   switch(action.type){
     case "SET_VISITORS":
-      return {
-        ...action.payload
-      }
+      return action.payload;
     default: return state
   }
 }

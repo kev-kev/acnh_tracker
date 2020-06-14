@@ -13,9 +13,8 @@ export class UserPage extends Component {
     this.props.fetchVisitors()
   }
 
-  render() {
-    const renderUserPage = () => {
-    if(this.props.user.username === this.props.match.params.username.toString()){
+  renderUserPage = () => {
+    if(this.props.loggedIn && this.props.user.username === this.props.match.params.username.toString()){
       return(
         <div>
          <NavBar />
@@ -30,10 +29,12 @@ export class UserPage extends Component {
         <Redirect to="/login"/>
       )
     }
-    }
+  }
+
+  render() {
     return (
       <div>
-        {renderUserPage()}
+        {this.renderUserPage()}
       </div>
     )
   }
@@ -41,7 +42,8 @@ export class UserPage extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.userReducer.user
+    user: state.userReducer.user,
+    loggedIn: state.userReducer.loggedIn
   }
 }
 

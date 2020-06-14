@@ -5062,3 +5062,618 @@ Processing by VisitorsController#index as */*
 Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 2684)
 
 
+Started POST "/users/" for ::1 at 2020-06-13 19:41:08 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"asdfasdf", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"asdfasdf", "profile_pic"=>"asdfasdf", "user"=>{"username"=>"asdfasdf", "island_name"=>"asdfasdf", "profile_pic"=>"asdfasdf"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "asdfasdf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "asdfasdf"], ["password_digest", "$2a$12$81SuOzXBuwWW6dWbf/esheGVuik/NHJZMLzxl9NgdNYvxqXw/1kn6"], ["island_name", "asdfasdf"], ["profile_pic", "asdfasdf"], ["created_at", "2020-06-13 23:41:08.807900"], ["updated_at", "2020-06-13 23:41:08.807900"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "asdfasdf"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 201 Created in 252ms (Views: 0.4ms | ActiveRecord: 4.6ms | Allocations: 5091)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:42:46 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"2", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"2", "profile_pic"=>"2", "user"=>{"username"=>"2", "island_name"=>"2", "profile_pic"=>"2"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "2"], ["password_digest", "$2a$12$ZVwELiDiv/y42h4YmVXLQeLqsmc7Ijs/M.r5LcSP6LWL3uyC73Rn6"], ["island_name", "2"], ["profile_pic", "2"], ["created_at", "2020-06-13 23:42:46.416926"], ["updated_at", "2020-06-13 23:42:46.416926"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "2"], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 201 Created in 254ms (Views: 0.4ms | ActiveRecord: 3.7ms | Allocations: 4954)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:48:45 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"3", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"3", "profile_pic"=>"3", "user"=>{"username"=>"3", "island_name"=>"3", "profile_pic"=>"3"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "3"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "3"], ["password_digest", "$2a$12$kKuM7qC9tYmH8AlrxBZYzua3HStYSR5tnIHEjX1w6My8z3AVSWgJ6"], ["island_name", "3"], ["profile_pic", "3"], ["created_at", "2020-06-13 23:48:46.189905"], ["updated_at", "2020-06-13 23:48:46.189905"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "3"], ["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 201 Created in 249ms (Views: 0.5ms | ActiveRecord: 5.3ms | Allocations: 4927)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:52:56 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"3", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"3", "profile_pic"=>"3", "user"=>{"username"=>"3", "island_name"=>"3", "profile_pic"=>"3"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "3"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "3"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.06ms)
+Completed 200 OK in 250ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 4615)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:54:13 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"5", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"5", "profile_pic"=>"5", "user"=>{"username"=>"5", "island_name"=>"5", "profile_pic"=>"5"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "5"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "5"], ["password_digest", "$2a$12$5mfm7AtDzd5R9RF6xmeuy.nWAQWkmmJ1BIK0qIMQG2X.Uz4OYaNBu"], ["island_name", "5"], ["profile_pic", "5"], ["created_at", "2020-06-13 23:54:14.034508"], ["updated_at", "2020-06-13 23:54:14.034508"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "5"], ["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 201 Created in 249ms (Views: 0.5ms | ActiveRecord: 3.0ms | Allocations: 4953)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 19:54:43 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (13.1ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (15.72ms)
+Completed 200 OK in 16ms (Views: 3.0ms | ActiveRecord: 13.1ms | Allocations: 2724)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:55:22 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"5", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"5", "profile_pic"=>"5", "user"=>{"username"=>"5", "island_name"=>"5", "profile_pic"=>"5"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "5"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "5"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.09ms)
+Completed 200 OK in 245ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 4570)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:55:36 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"6", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"6", "profile_pic"=>"6", "user"=>{"username"=>"6", "island_name"=>"6", "profile_pic"=>"6"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "6"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "6"], ["password_digest", "$2a$12$.8C6pncPFm2nuncskH.BnurG.KIl9qvTu/at0RLoMe/sFvIpkK/32"], ["island_name", "6"], ["profile_pic", "6"], ["created_at", "2020-06-13 23:55:37.160594"], ["updated_at", "2020-06-13 23:55:37.160594"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "6"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 201 Created in 251ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 4953)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:55:51 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"7", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"7", "profile_pic"=>"7", "user"=>{"username"=>"7", "island_name"=>"7", "profile_pic"=>"7"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "7"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "7"], ["password_digest", "$2a$12$sNtFYY86vR2o5Phb/Fy65up0ww86.srdOI7cbsrp/yEPYsZ6o5RJ6"], ["island_name", "7"], ["profile_pic", "7"], ["created_at", "2020-06-13 23:55:52.188745"], ["updated_at", "2020-06-13 23:55:52.188745"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "7"], ["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Completed 201 Created in 245ms (Views: 0.5ms | ActiveRecord: 3.2ms | Allocations: 4953)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 19:56:27 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"auth"=>{"username"=>"7", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "7"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 202 Accepted in 240ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 1056)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 19:56:27 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.4ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.55ms)
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:56:37 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"12", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"12", "profile_pic"=>"12", "user"=>{"username"=>"12", "island_name"=>"12", "profile_pic"=>"12"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "12"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "12"], ["password_digest", "$2a$12$dUS6lag/17ujTdwf8h2.leGO.khwbKA3djKLfQf.VJtoyTN.RRnD2"], ["island_name", "12"], ["profile_pic", "12"], ["created_at", "2020-06-13 23:56:38.212082"], ["updated_at", "2020-06-13 23:56:38.212082"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "12"], ["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 201 Created in 246ms (Views: 0.7ms | ActiveRecord: 3.2ms | Allocations: 4953)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 19:57:05 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.3ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.78ms)
+Completed 200 OK in 4ms (Views: 3.9ms | ActiveRecord: 0.3ms | Allocations: 2684)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 19:57:08 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.3ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.07ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 2684)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 19:57:15 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.4ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.97ms)
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.4ms | Allocations: 2684)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 19:57:18 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (4.1ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.59ms)
+Completed 200 OK in 7ms (Views: 3.0ms | ActiveRecord: 4.1ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:57:32 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"11", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"11", "profile_pic"=>"11", "user"=>{"username"=>"11", "island_name"=>"11", "profile_pic"=>"11"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "11"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "11"], ["password_digest", "$2a$12$smTyZxFcvBN7ls7b8.gq6.kwwu.xP4Wza2l9bGLRkX1dydvT619C6"], ["island_name", "11"], ["profile_pic", "11"], ["created_at", "2020-06-13 23:57:33.130982"], ["updated_at", "2020-06-13 23:57:33.130982"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "11"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 201 Created in 249ms (Views: 0.5ms | ActiveRecord: 3.1ms | Allocations: 4957)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 19:57:44 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (18.8ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (23.42ms)
+Completed 200 OK in 24ms (Views: 5.0ms | ActiveRecord: 18.8ms | Allocations: 2684)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 19:59:20 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (1.0ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.57ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 1.0ms | Allocations: 2684)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 19:59:23 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"auth"=>{"username"=>"12", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "12"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 202 Accepted in 242ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1028)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 19:59:24 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (1.3ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.68ms)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 1.3ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 19:59:32 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"14", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"14", "profile_pic"=>"14", "user"=>{"username"=>"14", "island_name"=>"14", "profile_pic"=>"14"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "14"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "14"], ["password_digest", "$2a$12$VhayevKsUp51DCfGJCJ.Z.OTAlpnylOMmUILeYgbW8kHC4GPXhiNe"], ["island_name", "14"], ["profile_pic", "14"], ["created_at", "2020-06-13 23:59:32.812868"], ["updated_at", "2020-06-13 23:59:32.812868"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "14"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 201 Created in 244ms (Views: 0.4ms | ActiveRecord: 1.5ms | Allocations: 4957)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:00:03 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"16", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"16", "profile_pic"=>"16", "user"=>{"username"=>"16", "island_name"=>"16", "profile_pic"=>"16"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "16"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "16"], ["password_digest", "$2a$12$ebVVnzmEnkMFf/QKHFjwoehVOZvcALf3iZ34zEAHwXw1BRIpUaiyC"], ["island_name", "16"], ["profile_pic", "16"], ["created_at", "2020-06-14 00:00:03.809202"], ["updated_at", "2020-06-14 00:00:03.809202"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "16"], ["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 201 Created in 252ms (Views: 0.6ms | ActiveRecord: 3.1ms | Allocations: 4953)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:00:16 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (4.5ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.36ms)
+Completed 200 OK in 8ms (Views: 3.3ms | ActiveRecord: 4.5ms | Allocations: 2684)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:00:37 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.4ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.65ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.4ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:00:50 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"17", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"17", "profile_pic"=>"17", "user"=>{"username"=>"17", "island_name"=>"17", "profile_pic"=>"17"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "17"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "17"], ["password_digest", "$2a$12$79g.Gd.CpVeMQ6WCc1ahsuKkREZ/4VPi3Q5jkwjbrKvHdQwsQsYKy"], ["island_name", "17"], ["profile_pic", "17"], ["created_at", "2020-06-14 00:00:51.148683"], ["updated_at", "2020-06-14 00:00:51.148683"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "17"], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 201 Created in 255ms (Views: 0.9ms | ActiveRecord: 3.1ms | Allocations: 4953)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:00:59 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (4.0ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.27ms)
+Completed 200 OK in 8ms (Views: 3.7ms | ActiveRecord: 4.0ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:01:56 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"18", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"18", "profile_pic"=>"18", "user"=>{"username"=>"18", "island_name"=>"18", "profile_pic"=>"18"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "18"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "18"], ["password_digest", "$2a$12$o2N4E/IEk1544CTIXx88QumstfkW61wEzLl25MMxYR0n.oRPUBCd6"], ["island_name", "18"], ["profile_pic", "18"], ["created_at", "2020-06-14 00:01:56.870959"], ["updated_at", "2020-06-14 00:01:56.870959"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "18"], ["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 201 Created in 244ms (Views: 0.5ms | ActiveRecord: 3.2ms | Allocations: 4954)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:02:01 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (1.3ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.87ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 1.3ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:02:41 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"19", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"19", "profile_pic"=>"19", "user"=>{"username"=>"19", "island_name"=>"19", "profile_pic"=>"19"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "19"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "19"], ["password_digest", "$2a$12$HleljW0LYadVwxqxBkGASOBy76hUYSLmCw7e8kSgub8XTHox3A/7W"], ["island_name", "19"], ["profile_pic", "19"], ["created_at", "2020-06-14 00:02:41.829672"], ["updated_at", "2020-06-14 00:02:41.829672"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "19"], ["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 201 Created in 244ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 4953)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:02:48 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.4ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.67ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.4ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:03:45 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"22", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"22", "profile_pic"=>"22", "user"=>{"username"=>"22", "island_name"=>"22", "profile_pic"=>"22"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "22"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "22"], ["password_digest", "$2a$12$bj0pCvLORkEWYQ1nGtiC7.r1eW/7XsOctiPxtFQSlJp7frSOK1Rrm"], ["island_name", "22"], ["profile_pic", "22"], ["created_at", "2020-06-14 00:03:45.969167"], ["updated_at", "2020-06-14 00:03:45.969167"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "22"], ["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 201 Created in 248ms (Views: 0.5ms | ActiveRecord: 3.1ms | Allocations: 4953)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:03:54 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.4ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.25ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:04:45 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"23", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"23", "profile_pic"=>"23", "user"=>{"username"=>"23", "island_name"=>"23", "profile_pic"=>"23"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "23"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "23"], ["password_digest", "$2a$12$G5cNDGcMC8trV4KCnuTtz.gnOm8afomqRiiOJfBhs.auCySX0RI2O"], ["island_name", "23"], ["profile_pic", "23"], ["created_at", "2020-06-14 00:04:45.396388"], ["updated_at", "2020-06-14 00:04:45.396388"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "23"], ["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 201 Created in 247ms (Views: 0.6ms | ActiveRecord: 3.2ms | Allocations: 4954)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:05:42 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.4ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.0ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 0.4ms | Allocations: 2684)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:06:39 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (1.2ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.93ms)
+Completed 200 OK in 5ms (Views: 4.1ms | ActiveRecord: 1.2ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:06:47 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"24", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"42", "profile_pic"=>"24", "user"=>{"username"=>"24", "island_name"=>"42", "profile_pic"=>"24"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "24"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "24"], ["password_digest", "$2a$12$k4WmzlI6HCqbbP3u9XOhxuOrlV4xunWMM51NoTzRm97CoEk3Qt57i"], ["island_name", "42"], ["profile_pic", "24"], ["created_at", "2020-06-14 00:06:47.710587"], ["updated_at", "2020-06-14 00:06:47.710587"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "24"], ["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 201 Created in 244ms (Views: 0.5ms | ActiveRecord: 1.8ms | Allocations: 4954)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:06:51 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.3ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.49ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.3ms | Allocations: 2684)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:08:09 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"26", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"26", "profile_pic"=>"26", "user"=>{"username"=>"26", "island_name"=>"26", "profile_pic"=>"26"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "26"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "26"], ["password_digest", "$2a$12$Urb2vfvgIMKwXIFvLXBeX.JhbCQymJuaXkKBH05v1fRYvSTZZe71G"], ["island_name", "26"], ["profile_pic", "26"], ["created_at", "2020-06-14 00:08:10.227208"], ["updated_at", "2020-06-14 00:08:10.227208"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "26"], ["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 201 Created in 245ms (Views: 0.5ms | ActiveRecord: 3.3ms | Allocations: 4953)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:09:05 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"30", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"30", "profile_pic"=>"30", "user"=>{"username"=>"30", "island_name"=>"30", "profile_pic"=>"30"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "30"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "30"], ["password_digest", "$2a$12$KrJquut83TXRyNmrbdGZceis5GuAdkmCi3DOCJ/UnHJjpn6V9V54i"], ["island_name", "30"], ["profile_pic", "30"], ["created_at", "2020-06-14 00:09:05.600968"], ["updated_at", "2020-06-14 00:09:05.600968"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "30"], ["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 201 Created in 252ms (Views: 0.5ms | ActiveRecord: 3.5ms | Allocations: 4954)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:09:47 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"31", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"31", "profile_pic"=>"31", "user"=>{"username"=>"31", "island_name"=>"31", "profile_pic"=>"31"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "31"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "31"], ["password_digest", "$2a$12$egmU3japLpQedXeiWNEQJeCpemYYlbQb/SyDYFF9X7oSFSSyoxNca"], ["island_name", "31"], ["profile_pic", "31"], ["created_at", "2020-06-14 00:09:47.691735"], ["updated_at", "2020-06-14 00:09:47.691735"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "31"], ["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 201 Created in 250ms (Views: 0.4ms | ActiveRecord: 3.0ms | Allocations: 4953)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:09:56 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"abc", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"abc", "profile_pic"=>"abc", "user"=>{"username"=>"abc", "island_name"=>"abc", "profile_pic"=>"abc"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "abc"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "abc"], ["password_digest", "$2a$12$.TYkT1dGN5h9XPmNjitRUO1x4AcY0Ja5d1GUvLoafTe5roqHhQfEO"], ["island_name", "abc"], ["profile_pic", "abc"], ["created_at", "2020-06-14 00:09:56.641386"], ["updated_at", "2020-06-14 00:09:56.641386"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "abc"], ["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Completed 201 Created in 250ms (Views: 0.5ms | ActiveRecord: 3.3ms | Allocations: 4953)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 20:10:08 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"auth"=>{"username"=>"abc", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "abc"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 202 Accepted in 241ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1028)
+
+
+Started POST "/users/" for ::1 at 2020-06-13 20:15:58 -0400
+Processing by UsersController#create as JSON
+  Parameters: {"username"=>"101", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "island_name"=>"101", "profile_pic"=>"101", "user"=>{"username"=>"101", "island_name"=>"101", "profile_pic"=>"101"}}
+[31mUnpermitted parameter: :user[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) LIMIT $2[0m  [["username", "101"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "island_name", "profile_pic", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "101"], ["password_digest", "$2a$12$7bVBExijhmb73M34NwRID.TncYYw0ScfuLqkUNfdcozKkJzOYjmIq"], ["island_name", "101"], ["profile_pic", "101"], ["created_at", "2020-06-14 00:15:58.335473"], ["updated_at", "2020-06-14 00:15:58.335473"]]
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:9:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "101"], ["id", 22], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `create'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 201 Created in 246ms (Views: 0.4ms | ActiveRecord: 5.5ms | Allocations: 4925)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 20:16:01 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"auth"=>{"username"=>"101", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "101"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 202 Accepted in 240ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 1096)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:16:36 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (9.7ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (12.8ms)
+Completed 200 OK in 13ms (Views: 3.4ms | ActiveRecord: 9.7ms | Allocations: 2684)
+
+
+Started POST "/login/" for ::1 at 2020-06-13 20:16:40 -0400
+Processing by UsersController#login as JSON
+  Parameters: {"auth"=>{"username"=>"101", "password"=>"[FILTERED]"}, "user"=>{}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "101"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `login'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 202 Accepted in 238ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 1031)
+
+
+Started GET "/visitors/" for ::1 at 2020-06-13 20:16:40 -0400
+Processing by VisitorsController#index as */*
+[active_model_serializers]   [1m[36mVisitor Load (0.3ms)[0m  [1m[34mSELECT "visitors".* FROM "visitors"[0m
+[active_model_serializers]   ↳ app/controllers/visitors_controller.rb:4:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (4.68ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.3ms | Allocations: 2684)
+
+
