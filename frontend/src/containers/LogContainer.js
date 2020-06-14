@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import VisitorBox from '../components/VisitorBox'
+import { saveLog } from '../actions/logActions'
 
 export class LogContainer extends Component {
 
@@ -65,6 +66,7 @@ export class LogContainer extends Component {
 
   saveLog = () => {
     // Dispatch action with date + visitors in payload
+    this.props.saveLog(this.state.date, this.state.visitors)
     console.log("Saving Log")
   }
 
@@ -92,8 +94,8 @@ const mapStateToProps = (state) => ({
   visitors: state.visitorReducer.visitors
 })
 
-const mapDispatchToProps = {
-  
-}
+const mapDispatchToProps = (dispatch) => ({
+  saveLog: (date, visitors) => dispatch(saveLog(date, visitors))
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogContainer)

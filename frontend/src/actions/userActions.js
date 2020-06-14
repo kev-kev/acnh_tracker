@@ -21,7 +21,7 @@ export const fetchUser = userInfo => {
       }
     })
     .then(data => {
-      localStorage.setItem('token', data.token)
+      localStorage.setItem('token', data.jwt)
       dispatch(setUser(data.user));
     })
     .catch((error) => {

@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   get '/profile', to: 'users#profile'
   get '/auto_login', to: 'users#auto_login'
   get '/visitors', to: 'visitors#index'
+
+  post '/log/save', to: 'logs#save'
 end
