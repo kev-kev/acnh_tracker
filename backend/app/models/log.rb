@@ -1,4 +1,7 @@
 class Log < ApplicationRecord
   belongs_to :user
-  belongs_to :visitor
+  has_many :visitors
+
+  # need to validate uniqueness per user...
+  validates :date, uniqueness: { scope: :user }
 end

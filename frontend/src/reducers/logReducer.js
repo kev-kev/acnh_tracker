@@ -1,16 +1,31 @@
 const defaultState = {
-  isSaving: false
+  isSaving: false,
+  isFetchingLogs: false,
+  logs: []
 }
 
 const logReducer = (state = defaultState, action) => {
   switch(action.type){
     case "SAVING_LOG":
       return {
+        ...state,
         isSaving: true
       }
     case "LOG_SAVED":
       return {
-        isSaved: false
+        ...state,
+        isSaving: false
+      }
+    case "FETCHING_LOGS":
+      return {
+        ...state,
+        isFetchingLogs: true
+      }
+    case "LOG_FETCH_SUCCESS":
+      return {
+        ...state,
+        isFetchingLogs: false,
+        logs: action.payload
       }
     default: return state
   }

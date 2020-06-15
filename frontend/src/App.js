@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css';
 import SignupForm from './components/signupForm'
-import { fetchUser, signUserUp, autoLogin } from './actions/userActions'
+import { fetchUser, signUserUp } from './actions/userActions'
 import Navbar from './components/NavBar'
 import { Link } from 'react-router-dom'
 

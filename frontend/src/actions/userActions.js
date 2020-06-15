@@ -55,7 +55,6 @@ export const signUserUp = (userInfo) => dispatch => {
 }
 
 export const logUserOut = () => dispatch => {
-  console.log("logging out")
   dispatch(logOut())
 }
 

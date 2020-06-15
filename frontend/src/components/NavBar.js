@@ -16,7 +16,7 @@ export class NavBar extends Component {
     return (
       <div className="navbar">
         <Link to={redirectUrl()}>
-          <img src={require('../assets/images/leaf.png')} height="100"/>
+          <img src={require('../assets/images/leaf.png')} alt="leaf" height="100"/>
         </Link>
       </div>
     )

@@ -22,7 +22,6 @@ export class LogContainer extends Component {
       this.setState({
         visitors: [...this.state.visitors, targetVisitor]
       })
-      console.log(this.state)
     } else {
       let visitorsArr = this.state.visitors
       let idx = visitorsArr.findIndex(visitor => visitor === targetVisitor)
@@ -30,7 +29,6 @@ export class LogContainer extends Component {
       this.setState({
         visitors: newVisitors
       })
-      console.log(this.state)
     }
   }
 
@@ -38,7 +36,7 @@ export class LogContainer extends Component {
     if (this.props.visitors){
       return this.props.visitors.map(visitor => {
         return (
-          <VisitorBox visitor={visitor} handleOnChange={this.handleOnChange}/>
+          <VisitorBox key={visitor.name} visitor={visitor} handleOnChange={this.handleOnChange}/>
         )
       })
     }
@@ -67,7 +65,6 @@ export class LogContainer extends Component {
   saveLog = () => {
     // Dispatch action with date + visitors in payload
     this.props.saveLog(this.state.date, this.state.visitors)
-    console.log("Saving Log")
   }
 
   // when log is submitted, need to iterate through visitors in state

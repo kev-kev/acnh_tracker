@@ -9,6 +9,9 @@
 
 
 base_url = "https://acnh-tracker-imgs.s3.amazonaws.com/"
+
+# should prob render them in this order
+
 Visitor.create(name: "Daisy Mae", img: base_url + "daisy_mae.png")
 Visitor.create(name: "K.K.", img: base_url + "kk.png")  
 Visitor.create(name: "Kicks", img: base_url + "kicks.png")

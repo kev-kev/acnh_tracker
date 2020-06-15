@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_04_191642) do
+ActiveRecord::Schema.define(version: 2020_06_14_180732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "log_visitors", force: :cascade do |t|
+    t.integer "visitor_id"
+    t.integer "log_id"
+  end
 
   create_table "logs", force: :cascade do |t|
     t.string "date"
