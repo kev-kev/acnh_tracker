@@ -1,98 +1,55 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import VisitorBox from '../components/VisitorBox'
-import { saveLog } from '../actions/logActions'
+import { fetchLogs, selectLog } from '../actions/logActions'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import Dashboard from '../dashboard/Dashboard'
 
 export class LogContainer extends Component {
 
-  state = {
-    date: "",
-    visitors: []
-  }
-
   componentDidMount(){
-    this.setState({
-      date: (new Date()).toISOString().substr(0,10)
-    })
+    this.props.fetchLogs()
   }
 
-  handleOnChange = (e) => {
-    let targetVisitor = e.target.id
-    if (e.target.checked){
-      this.setState({
-        visitors: [...this.state.visitors, targetVisitor]
-      })
-    } else {
-      let visitorsArr = this.state.visitors
-      let idx = visitorsArr.findIndex(visitor => visitor === targetVisitor)
-      let newVisitors = [...this.state.visitors.slice(0, idx), ...this.state.visitors.slice(idx + 1)]
-      this.setState({
-        visitors: newVisitors
-      })
-    }
-  }
-
-  renderVisitorHeaders = () => {
-    if (this.props.visitors){
-      return this.props.visitors.map(visitor => {
-        return (
-          <VisitorBox key={visitor.name} visitor={visitor} handleOnChange={this.handleOnChange}/>
-        )
-      })
-    }
-  }
-
-  getWeekday = () => {
-    let d = new Date(this.state.date)
-    let weekday = new Array(7)
-    weekday[0] = "Monday";
-    weekday[1] = "Tuesday";
-    weekday[2] = "Wednesday";
-    weekday[3] = "Thursday";
-    weekday[4] = "Friday";
-    weekday[5] = "Saturday";
-    weekday[6] = "Sunday";
-    return weekday[d.getDay()]
+  handleOnClick = (date) => {
+    // debugger
+    let targetLog = this.props.logs.find(prop => {
+      return prop.date === date
+    }) 
+    this.props.selectLog(targetLog)
 
   }
 
-  handleDateChange = (e) => {
-    this.setState({
-      date: e.target.value
-    })
+  getPrettyDate = (date) => {
+    const prettyDate = new Date(date).toLocaleDateString()
+    return prettyDate
   }
-
-  saveLog = () => {
-    // Dispatch action with date + visitors in payload
-    this.props.saveLog(this.state.date, this.state.visitors)
-  }
-
-  // when log is submitted, need to iterate through visitors in state
-  // dispatch an action that will persist that visitorID+date+userID to the backend
 
   render() {
     return (
-      <>
-        <p className="date">{this.getWeekday()}</p><br />
-        <label htmlFor="date">Date</label>
-        <input type="date" value={this.state.date} id="date" min="2020-03-20" onChange={this.handleDateChange}/>
-        <div className="logTable">
-          <div className="visitorHeaders">
-            {this.renderVisitorHeaders()} 
-          </div> <br />
-        </div>
-        <button onClick={this.saveLog}> Submit </button>
-      </>
+      <List className="logContainer">
+        {this.props.logs.map(log => {
+          return (
+            <ListItem>
+              <ListItemText key={log.date} onClick={() => this.handleOnClick(log.date)}>{this.getPrettyDate(log.date)}</ListItemText>
+            </ListItem>
+          )
+        })}
+      </List>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  visitors: state.visitorReducer.visitors
+  user: state.userReducer.user,
+  logs: state.logReducer.logs,
+  selectedLog: state.logReducer.selectedLog
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  saveLog: (date, visitors) => dispatch(saveLog(date, visitors))
+  fetchLogs: () => dispatch(fetchLogs()),
+  selectLog: (log) => dispatch(selectLog(log))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogContainer)

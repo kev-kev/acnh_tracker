@@ -4,9 +4,7 @@ import { connect } from 'react-redux'
 
 export class NavBar extends Component {
   render() {
-    const redirectUrl = () => {
-      // if signed in, link to /:user, if not, link to /
-      // debugger
+    const url = () => {
       if(this.props.user.username){
         return `/${this.props.user.username}`
       } else {
@@ -15,7 +13,7 @@ export class NavBar extends Component {
     }
     return (
       <div className="navbar">
-        <Link to={redirectUrl()}>
+        <Link to={url()}>
           <img src={require('../assets/images/leaf.png')} alt="leaf" height="100"/>
         </Link>
       </div>

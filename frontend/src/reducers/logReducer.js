@@ -1,7 +1,9 @@
 const defaultState = {
   isSaving: false,
   isFetchingLogs: false,
-  logs: []
+  logs: [],
+  selectedLog: null,
+  selectedLogVisitors: null
 }
 
 const logReducer = (state = defaultState, action) => {
@@ -27,6 +29,12 @@ const logReducer = (state = defaultState, action) => {
         isFetchingLogs: false,
         logs: action.payload
       }
+    case "SELECT_LOG":
+      return {
+          ...state,
+          selectedLog: action.payload,
+        }
+      
     default: return state
   }
 }

@@ -1,9 +1,12 @@
 const savingLog = () => ({type: "SAVING_LOG"})
 const logSaved = () => ({type: "LOG_SAVED"})
+
 const fetchingLogs = () => ({type: "FETCHING_LOGS"})
 const logFetchSuccess = (payload) => ({type: "LOG_FETCH_SUCCESS", payload})
 
-// action creators here
+const setLog = (payload) => ({type: "SELECT_LOG", payload})
+
+
 export const saveLog = (date, visitors) => dispatch => {
   dispatch(savingLog())
   fetch('http://localhost:4000/log/save', {
@@ -38,13 +41,15 @@ export const fetchLogs = () => dispatch => {
     }
   })
     .then(r => {
-      if (r.ok) {
-        return r.json()
-      } else {
-
-      }
+      return r.json()
     })
     .then(data => {
       dispatch(logFetchSuccess(data["logs"]))
     })
+}
+
+
+
+export const selectLog = (log) => dispatch => {
+  dispatch(setLog(log))
 }

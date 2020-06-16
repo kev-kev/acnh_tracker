@@ -7,11 +7,11 @@ import thunk from 'redux-thunk'
 import rootReducer from './reducers/index'
 import Root from './components/Root'
 import { composeWithDevTools } from 'redux-devtools-extension'
+import 'fontsource-roboto';
 
 const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunk)
   ))
-
 
 ReactDOM.render(
   <Root store={store}/>,

@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import NavBar  from '../components/NavBar'
-import LogContainer from './LogContainer'
-import LogIndex from '../components/LogIndex'
+import LogForm from './LogForm'
+import LogContainer from '../containers/LogContainer'
 import { logUserOut } from '../actions/userActions'
 import { fetchVisitors } from '../actions/visitorActions'
+import LogDisplay from '../components/LogDisplay'
 
 
 export class UserPage extends Component {
@@ -21,8 +22,9 @@ export class UserPage extends Component {
          <NavBar />
           <h1>{this.props.user.username}</h1><br />
           <h1>{this.props.user.island_name}</h1>
-          <LogIndex />
-          <LogContainer className="logContainer"/><br />
+          <LogContainer />
+          <LogDisplay />
+          <LogForm className="logForm"/><br />
           <button onClick={this.props.logUserOut}>Log Out</button>
         </div>
       )

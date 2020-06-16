@@ -1,11 +1,14 @@
 class LogsController < ApplicationController
 
-  # current_user not getting set because no auth header
-  # do i get the user some other way? or do i authorize this with the bearer thing..
   def index
     @logs = Log.all
-    user_logs = @logs.select{|log| log.user == current_user}
-    render json: {logs: user_logs}, status: :ok
+    user_logs = @logs.select{ |log| log.user == current_user }
+    user_logs = user_logs.map{|log| {date: log.date, visitors: log.visitors} }
+    if (user_logs.length > 0) 
+      render json: {logs: user_logs }, status: :ok
+    else 
+      render json: {logs: []}, status: :ok
+    end
   end
 
   def save
@@ -21,6 +24,16 @@ class LogsController < ApplicationController
     else
       render json: {error: @log.errors}, status: :not_acceptable
     end
+  end
+
+  def edit
+    @log = Log.find(params[:id])
+  end
+
+  def update
+    @log = Log.find(params[:id])
+    @log.update(date: params[:date])
+    # update associated visitors here, but how....
   end
 
 end

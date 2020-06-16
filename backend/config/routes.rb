@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   get '/visitors', to: 'visitors#index'
 
-  post '/log/save', to: 'logs#save'
+  # resources :logs
   get '/logs', to: 'logs#index'
+  post '/log/save', to: 'logs#save'
+  get '/log/:id/edit', to: 'logs#edit'
+  patch '/log/:id', to: 'logs#update'
+  
 end
