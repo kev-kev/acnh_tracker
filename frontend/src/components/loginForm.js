@@ -41,7 +41,6 @@ export class LoginForm extends Component {
     }
   }
 
-  
   render() {
     return (
       this.renderLoginFormOrRedirect()

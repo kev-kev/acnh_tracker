@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -13,14 +10,19 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { signUserUp } from '../actions/userActions'
+import { Snackbar } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Kevkev Productions
+        KevKev Productions
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -68,6 +70,15 @@ class SignupForm extends Component {
   onSubmit = (e) => {
     e.preventDefault()
     this.props.signUserUp(this.state)
+  }
+
+  componentDidUpdate(){
+    if(this.props.signedUp){
+      console.log("signed up!")
+      return(
+        <Alert severity="success">This is a success message!</Alert>
+      )
+    }
   }
 
     render() {
@@ -152,6 +163,7 @@ class SignupForm extends Component {
               </Grid>
             </form>
           </div>
+          
           <Box mt={5}>
             <Copyright />
           </Box>
