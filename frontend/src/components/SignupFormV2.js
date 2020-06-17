@@ -10,12 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { signUserUp } from '../actions/userActions'
-import { Snackbar } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
-
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+import { Alert, AlertTitle } from '@material-ui/lab';
 
 function Copyright() {
   return (
@@ -31,6 +26,12 @@ function Copyright() {
 }
 
 const useStyles = theme => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: '50px', 
+    },
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -72,104 +73,121 @@ class SignupForm extends Component {
     this.props.signUserUp(this.state)
   }
 
-  componentDidUpdate(){
-    if(this.props.signedUp){
-      console.log("signed up!")
-      return(
-        <Alert severity="success">This is a success message!</Alert>
-      )
-    }
-  }
+  render() {
+    const { classes } = this.props
 
-    render() {
-      const { classes } = this.props
-      return (
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <div className={classes.paper}>
-            <img src={require('../assets/images/leaf.png')} alt="leaf" height="100"/>
-            <Typography component="h1" variant="h5">
-              Sign up
-            </Typography>
-            <form className={classes.form} noValidate autoComplete="off" onSubmit={this.onSubmit}>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    name="username"
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="username"
-                    label="Username"
-                    autoFocus
-                    value={this.state.username} 
-                    onChange={this.handleOnChange}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="islandName"
-                    label="Island Name"
-                    name="island_name"
-                    value={this.state.island_name} 
-                    onChange={this.handleOnChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    type="password"
-                    id="password"
-                    label="Password"
-                    name="password"
-                    value={this.state.password} 
-                    onChange={this.handleOnChange}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    name="password_confirmation"
-                    label="Confirm Password"
-                    type="password"
-                    id="password"
-                    value={this.state.passwordConfirmation} 
-                    onChange={this.handleOnChange}
-                  />
-                </Grid>
+    const displayAlert = () => {
+      if(this.props.signedUp){
+        console.log("signed up!")
+        return(
+          <div className={classes.root}>
+            <Alert severity="success">
+              <AlertTitle>Success</AlertTitle>
+              Account successfully created
+          </Alert>     
+        </div> 
+        )
+      } else if(this.props.signedUp === false) {
+          console.log("signup failed!")
+          return(
+          <div className={classes.root}>
+            <Alert severity="error">
+              <AlertTitle>Error</AlertTitle>
+              Invalid username or password
+            </Alert>     
+          </div> 
+          )
+        }
+
+    }
+
+    return (
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <img src={require('../assets/images/leaf.png')} alt="leaf" height="100"/>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <form className={classes.form} noValidate autoComplete="off" onSubmit={this.onSubmit}>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="username"
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  autoFocus
+                  value={this.state.username} 
+                  onChange={this.handleOnChange}
+                />
               </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Sign Up
-              </Button>
-              <Grid container justify="flex-end">
-                <Grid item>
-                  <Link href="/login" variant="body2">
-                    Already have an account? Sign in
-                  </Link>
-                </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  id="islandName"
+                  label="Island Name"
+                  name="island_name"
+                  value={this.state.island_name} 
+                  onChange={this.handleOnChange}
+                />
               </Grid>
-            </form>
-          </div>
-          
-          <Box mt={5}>
-            <Copyright />
-          </Box>
-        </Container>
-     );
-   }
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  type="password"
+                  id="password"
+                  label="Password"
+                  name="password"
+                  value={this.state.password} 
+                  onChange={this.handleOnChange}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password_confirmation"
+                  label="Confirm Password"
+                  type="password"
+                  id="password"
+                  value={this.state.passwordConfirmation} 
+                  onChange={this.handleOnChange}
+                />
+              </Grid>
+            </Grid>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign Up
+            </Button>
+            <Grid container justify="flex-end">
+              <Grid item>
+                <Link href="/login" variant="body2">
+                  Already have an account? Sign in
+                </Link> <br />
+              </Grid>
+            </Grid>
+          </form>
+        </div>
+        {displayAlert()}
+        <Box mt={5}>
+          <Copyright />
+        </Box>
+      </Container>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {

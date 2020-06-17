@@ -12,14 +12,11 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux'
-import { fetchUser } from '../actions/userActions'
+import { fetchUser, userLoginFailed } from '../actions/userActions'
 import { Snackbar } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import { Redirect } from 'react-router'
-
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+import { Alert, AlertTitle } from '@material-ui/lab';
 
 function Copyright() {
   return (
@@ -35,6 +32,12 @@ function Copyright() {
 }
 
 const useStyles = theme => ({
+  root: {
+    width: '100%',
+    '& > * + *': {
+      marginTop: '50px', 
+    },
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -73,17 +76,38 @@ class LoginForm extends Component {
     })
   }
 
-  handleForgotPassword = () => {
-    return (
-    <Snackbar isOpen={true} autoHideDuration={6000}>
-      <Alert severity="error">This is an error message!</Alert>
-    </Snackbar>
-    )
 
-  }
 
   render() {
     const { classes } = this.props
+
+    const displayAlert = () => {
+      if(this.props.loginFailed === true){
+        console.log(this.props.loginFailed)
+        return (
+          <div className={classes.root}>
+            <Alert severity="error">
+              <AlertTitle>Error</AlertTitle>
+              Invalid username or password
+            </Alert>     
+          </div> 
+        )
+      } else {
+        console.log("omghihihi")
+      }
+    }
+
+    const handleForgotPassword = () => {
+      return (
+        <div className={classes.root}>
+          <Alert severity="error">
+            <AlertTitle>Error</AlertTitle>
+            Invalid username or password
+          </Alert>     
+        </div> 
+      )
+    }
+
     if (!this.props.successfulLogin) {
     return (
       <Container component="main" maxWidth="xs">
@@ -132,11 +156,11 @@ class LoginForm extends Component {
               Sign In
             </Button>
             <Grid container>
-              {/* <Grid item xs>
-                <Link href="#" variant="body2" onClick={this.handleForgotPassword}>
+              <Grid item xs>
+                <Link href="#" variant="body2" onClick={() => handleForgotPassword()}>
                   Forgot password?
                 </Link>
-              </Grid> */}
+              </Grid>
               <Grid item>
                 <Link href="/" variant="body2">
                   {"Don't have an account? Sign Up"}
@@ -145,6 +169,7 @@ class LoginForm extends Component {
             </Grid>
           </form>
         </div>
+        {displayAlert()}
         <Box mt={8}>
           <Copyright />
         </Box>
@@ -159,13 +184,14 @@ class LoginForm extends Component {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUser: (userInfo) => dispatch(fetchUser({auth: userInfo}))
+    fetchUser: (userInfo) => dispatch(fetchUser({auth: userInfo})),
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    successfulLogin: state.userReducer.loggedIn
+    successfulLogin: state.userReducer.loggedIn,
+    loginFailed: state.userReducer.loginFailed
   };
 }
 

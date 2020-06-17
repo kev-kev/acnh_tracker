@@ -1,6 +1,8 @@
 const setUser = (payload) => ({type: "SET_USER", payload})
 const logOut = () => ({type: "LOG_OUT"})
 const signedUp = () => ({type: "SIGNED_UP"})
+const signUpFailed = () => ({type: "SIGN_UP_FAILED"})
+const loginFailed = () => ({type: "LOG_IN_FAILED"})
 
 export const fetchUser = userInfo => {
   return (dispatch) => {
@@ -16,7 +18,6 @@ export const fetchUser = userInfo => {
       if (r.ok){
         return r.json()
       } else {
-        dispatch(logOut())
         throw new Error("uWu oh no! something went horribly wrong T_T")
       }
     })
@@ -25,7 +26,8 @@ export const fetchUser = userInfo => {
       dispatch(setUser(data.user));
     })
     .catch((error) => {
-      console.log(error)
+      dispatch(logOut())
+      dispatch(loginFailed())
     })
   };
 }
@@ -50,15 +52,13 @@ export const signUserUp = (userInfo) => dispatch => {
       dispatch(signedUp())
     })
     .catch((error) => {
-      console.log(error)
+      dispatch(signUpFailed())
     })
 }
 
 export const logUserOut = () => dispatch => {
   dispatch(logOut())
 }
-
-
 // export const autoLogin = () => dispatch => {
 //   fetch('http://localhost:4000/auto_login', {
 //     headers: {
