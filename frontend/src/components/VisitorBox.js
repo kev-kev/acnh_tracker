@@ -32,28 +32,27 @@ const useStyles = makeStyles((theme) => {
 });
 
 
+
 const VisitorBox = (props) => {
   const classes = useStyles();
 
   return (
-    <List>
-      <ListItem key={props.visitor.name} className={classes.listItem}>
-        <ListItemAvatar className={classes.avatar}>
-          <Avatar src={props.visitor.img} alt={props.visitor.name} className={classes.large}/>
-        </ListItemAvatar>
-        <ListItemText id={props.visitor.name} primary={props.visitor.name} />
-        {props.displayCheckbox ? 
-          <ListItemSecondaryAction>
-            <input type="checkbox" id={props.visitor.name} onChange={props.handleOnChange}/>
-          </ListItemSecondaryAction>
-          :
-          null
-        }
-      </ListItem>
-    </List>
-
-
-  )
+      <List>
+        <ListItem key={props.visitor.name} className={classes.listItem}>
+          <ListItemAvatar className={classes.avatar}>
+            <Avatar src={props.visitor.img} alt={props.visitor.name} className={classes.large}/>
+          </ListItemAvatar>
+          <ListItemText id={props.visitor.name} primary={props.visitor.name} />
+          {props.displayCheckbox ? 
+            <ListItemSecondaryAction>
+              <input type="checkbox" checked={props.checked} id={props.visitor.name} onChange={props.handleOnChange}/>
+            </ListItemSecondaryAction>
+            :
+            null
+          }
+        </ListItem>
+      </List>
+  );
 }
 
 export default VisitorBox

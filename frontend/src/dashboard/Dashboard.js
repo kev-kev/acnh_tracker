@@ -22,6 +22,8 @@ import LogDisplay from '../components/LogDisplay'
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import HomeIcon from '@material-ui/icons/Home';
+import { Redirect } from 'react-router'
 
 function Copyright() {
   return (
@@ -162,6 +164,12 @@ export default function Dashboard(props) {
         <Divider />
         <List>
         <ListItem button>
+          <ListItemIcon onClick={<Redirect to="/:username"/>}>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItem>
+        <ListItem button>
           <ListItemIcon onClick={props.handleLogOut}>
             <ExitToAppIcon />
           </ListItemIcon>
@@ -173,12 +181,12 @@ export default function Dashboard(props) {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            <Grid item xs={9} md={6} lg={6}>
+            <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <LogContainer />
               </Paper>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               <Paper className={classes.paper}>
                 <LogDisplay />
               </Paper>

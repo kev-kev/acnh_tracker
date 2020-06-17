@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import VisitorBox from '../components/VisitorBox'
 import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography';
+
 
 
 
@@ -20,12 +22,13 @@ export class LogDisplay extends Component {
 
   renderDisplay = () => {
     if (this.props.selectedLog) {
+      console.log(this.props.selectedLog);
       return (
       <>
         {this.displayedLog()}
-        <Button variant="contained" color="primary" component={Link} to={`/log/${this.props.selectedLog.id}/edit`}> 
+        <Button variant="contained" color="primary" component={Link} to={`/log/${this.props.selectedLog.date}/edit`}> 
             Edit Log
-        </Button>
+        </Button> <br />
       </>
       )
     } else {
@@ -36,7 +39,6 @@ export class LogDisplay extends Component {
     
   }
 
-
   render() {
     return (
       <div>
@@ -44,7 +46,7 @@ export class LogDisplay extends Component {
         {this.renderDisplay()} <br />
         <Button variant="contained" color="primary" component={Link} to="/log/new"> 
             Create New Log
-        </Button>
+        </Button> <br />
       </div>
     )
   }

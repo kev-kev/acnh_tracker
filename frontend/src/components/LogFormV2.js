@@ -24,6 +24,10 @@ import { fetchVisitors } from '../actions/visitorActions'
 import { saveLog } from '../actions/logActions'
 import VisitorBox from '../components/VisitorBox'
 import { connect } from 'react-redux'
+import Button from '@material-ui/core/Button'
+import NoteAddIcon from '@material-ui/icons/NoteAdd';
+import HomeIcon from '@material-ui/icons/Home';
+import { Link as RouteLink } from 'react-router-dom';
 
 
 function Copyright() {
@@ -36,7 +40,7 @@ function Copyright() {
       {new Date().getFullYear()}
       {'.'}
     </Typography>
-  );
+  )
 }
 
 const drawerWidth = 240;
@@ -148,18 +152,27 @@ export class LogForm extends Component {
 
   componentDidMount(){
     this.props.fetchVisitors()
+    const editDate = this.props.match.params.date;
+    const visitorNames = this.props.selectedLog ? this.props.selectedLog.visitors.map(visitor => visitor.name) : [];
     this.setState({
-      date: new Date().toISOString().substr(0,10)
+      date: editDate ?? new Date().toISOString().substr(0,10),
+      selectedVisitors: editDate && this.props.selectedLog ? visitorNames : []
     })
   }
 
   renderVisitorHeaders = (classes) => {
     if (this.props.visitors){
       return this.props.visitors.map(visitor => {
+        const isChecked = this.state.selectedVisitors.find(selectedVisitor => {
+          return visitor.name === selectedVisitor;
+        });
+        console.log("visitor", visitor);
+        console.log("selectedVisitors", this.state.selectedVisitors);
+        console.log("isChecked", this.state.selectedVisitors.includes(visitor))
         return (
           <Grid item xs={3} className={classes.visitorGrid}>
             <Paper variant="outlined" className={classes.visitorBox}>
-              <VisitorBox key={visitor.name} visitor={visitor} handleOnChange={this.handleOnChange} displayCheckbox={true} />
+              <VisitorBox key={visitor.name} visitor={visitor} handleOnChange={this.handleOnChange} displayCheckbox={true} checked={isChecked} />
             </Paper>
           </Grid>
         )
@@ -223,6 +236,8 @@ export class LogForm extends Component {
       })
     };
 
+    const customLink = props => <Link to={`/${this.props.username}`} />;
+
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -257,6 +272,12 @@ export class LogForm extends Component {
           </div>
           <Divider />
           <List>
+          <ListItem button component={RouteLink} to={`/${this.props.username}`}>
+            <ListItemIcon>
+                <HomeIcon />
+            </ListItemIcon>
+          <ListItemText primary="Home" />
+          </ListItem>
           <ListItem button>
             <ListItemIcon onClick={this.props.handleLogOut}>
               <ExitToAppIcon />
@@ -282,7 +303,7 @@ export class LogForm extends Component {
                 </Paper>
               </Grid>
               <Grid item xs={4}>
-                <button onClick={this.saveLog}> Save Log </button>
+                <Button variant="contained" color="primary" startIcon={<NoteAddIcon/>}onClick={this.saveLog}> Save Log </Button>
               </Grid>
             </Grid>
             <Box pt={4}>
@@ -297,7 +318,9 @@ export class LogForm extends Component {
 
 const mapStateToProps = (state) => ({
   visitors: state.visitorReducer.visitors,
-  selectedLog: state.logReducer.selectedLog
+  selectedLog: state.logReducer.selectedLog,
+  username: state.userReducer.user.username,
+  islandName: state.userReducer.user.island_name 
 })
 
 const mapDispatchToProps = (dispatch) => ({

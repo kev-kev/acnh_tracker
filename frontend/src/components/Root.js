@@ -17,7 +17,7 @@ const Root = ({ store }) => (
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/:username" component={UserPageV2} />
         <Route exact path="/log/new" component={LogForm} />
-        <Route exact path="/log/:id/edit" component={LogForm}/>
+        <Route exact path="/log/:date/edit" component={LogForm}/>
       </Switch>
     </Router>
   </Provider>

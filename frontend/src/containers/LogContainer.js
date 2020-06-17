@@ -3,8 +3,20 @@ import { connect } from 'react-redux'
 import { fetchLogs, selectLog } from '../actions/logActions'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Dashboard from '../dashboard/Dashboard'
+import Chip from '@material-ui/core/Chip';
+import { withStyles } from '@material-ui/core/styles';
+import NoteIcon from '@material-ui/icons/Note';
+
+const useStyles = theme => ({
+  root: {
+    display: 'flex',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    '& > *': {
+      margin: theme.spacing(0.5),
+    },
+  },
+})
 
 export class LogContainer extends Component {
 
@@ -31,7 +43,7 @@ export class LogContainer extends Component {
         {this.props.logs.map(log => {
           return (
             <ListItem>
-              <ListItemText key={log.date} onClick={() => this.handleOnClick(log.date)}>{this.getPrettyDate(log.date)}</ListItemText>
+              <Chip color="primary" icon={<NoteIcon />} key={log.date} label={this.getPrettyDate(log.date)} onClick={() => this.handleOnClick(log.date)} />
             </ListItem>
           )
         })}
@@ -51,4 +63,4 @@ const mapDispatchToProps = (dispatch) => ({
   selectLog: (log) => dispatch(selectLog(log))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogContainer)
+export default withStyles(useStyles)(connect(mapStateToProps, mapDispatchToProps)(LogContainer))
