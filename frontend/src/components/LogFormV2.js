@@ -119,8 +119,22 @@ const useStyles = theme => ({
     height: 240,
   },
   visitorGrid: {
-    margin: '10px'
+    margin: '10px',
+    display: 'flex',
+    justifyContent: 'center'
  },
+ visitorBox: {
+   width: 205
+ },
+ date: {
+   margin: '10px',
+ },
+ selectedDate: {
+   'text-align': 'center'
+ },
+ dateLabel: {
+   padding: '10px'
+ }
 });
 
 export class LogForm extends Component {
@@ -144,7 +158,7 @@ export class LogForm extends Component {
       return this.props.visitors.map(visitor => {
         return (
           <Grid item xs={3} className={classes.visitorGrid}>
-            <Paper variant="outlined">
+            <Paper variant="outlined" className={classes.visitorBox}>
               <VisitorBox key={visitor.name} visitor={visitor} handleOnChange={this.handleOnChange} displayCheckbox={true} />
             </Paper>
           </Grid>
@@ -255,21 +269,20 @@ export class LogForm extends Component {
           <div className={classes.appBarSpacer} />
           <Container maxWidth="lg" className={classes.container}>
             <Grid container spacing={3}>
-              <Grid item xs={12} md={8} lg={9}>
-                <Paper className={fixedHeightPaper}>
-                  <p className="date">{this.getWeekday()}</p><br />
-                  <label htmlFor="date">Date</label>
-                  <input type="date" value={this.state.date} id="date" min="2020-03-20" onChange={this.handleDateChange}/>
-                  <Grid container spacing={1}>
+              <Grid item xs={11}>
+                <Paper>
+                <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.selectedDate}>
+                 {this.getWeekday()}
+                </Typography>
+                  <label htmlFor="date" className={classes.dateLabel}>Select Date</label><br />
+                  <input type="date" value={this.state.date} className={classes.date} min="2020-03-20" onChange={this.handleDateChange}/>
+                  <Grid container spacing={1} className={classes.visitorGrid}>
                     {this.renderVisitorHeaders(classes)} 
                   </Grid>
                 </Paper>
               </Grid>
-              <Grid item xs={12}>
-                <Paper className={classes.paper}>
-                  {/* <LogDisplay /> */}
-                  <button onClick={this.saveLog}> Save Log </button>
-                </Paper>
+              <Grid item xs={4}>
+                <button onClick={this.saveLog}> Save Log </button>
               </Grid>
             </Grid>
             <Box pt={4}>
