@@ -26,11 +26,6 @@ export class signupForm extends Component {
   }
 
   render() {
-      if (this.props.signedUp) {
-        return (
-          <Redirect to="/login" />
-        )
-      } else {
         return (
           <div className="signup-form">
           <h4>Sign Up</h4>
@@ -43,9 +38,7 @@ export class signupForm extends Component {
             <input type="submit" value="Create Account"/>
           </form>
         </div>
-        )
-      }
-  }
+        )}
 }
 
 const mapStateToProps = (state) => {

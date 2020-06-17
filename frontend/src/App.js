@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './App.css';
-import SignupForm from './components/signupForm'
+import SignupForm from './components/SignupFormV2'
 import { fetchUser, signUserUp } from './actions/userActions'
 import Navbar from './components/NavBar'
 import { Link } from 'react-router-dom'
@@ -15,9 +15,8 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        <Navbar />   
+        {/* <Navbar />    */}
         <SignupForm /><br />
-        <Link to='/login'>Log In</Link> 
       </div>
     )
   }

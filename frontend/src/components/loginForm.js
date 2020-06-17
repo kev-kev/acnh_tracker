@@ -27,7 +27,6 @@ export class LoginForm extends Component {
     if (this.props.successfulLogin) {
       return (
         <Redirect to={`/${this.state.username}`}/>
-        // <Redirect to="/user" />
       )
     } else {
       return (
@@ -42,6 +41,7 @@ export class LoginForm extends Component {
     }
   }
 
+  
   render() {
     return (
       this.renderLoginFormOrRedirect()

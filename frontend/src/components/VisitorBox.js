@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => {
   };
 });
 
+
 const VisitorBox = (props) => {
   const classes = useStyles();
 
