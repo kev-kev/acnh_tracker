@@ -2,15 +2,29 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import VisitorBox from '../components/VisitorBox'
 import { saveLog } from '../actions/logActions'
+import { fetchVisitors } from '../actions/visitorActions'
+import List from '@material-ui/core/List'
+import Grid from '@material-ui/core/Grid'
+import Paper from '@material-ui/core/Paper'
+import { withStyles } from '@material-ui/core/styles';
+
+const useStyles = theme => ({
+  visitorGrid: {
+      margin: '10px'
+   },
+});
 
 export class LogForm extends Component {
 
+  classes = useStyles();
+
   state = {
     date: "",
-    visitors: []
+    selectedVisitors: []
   }
 
   componentDidMount(){
+    this.props.fetchVisitors()
     this.setState({
       date: new Date().toISOString().substr(0,10)
     })
@@ -20,23 +34,27 @@ export class LogForm extends Component {
     let targetVisitor = e.target.id
     if (e.target.checked){
       this.setState({
-        visitors: [...this.state.visitors, targetVisitor]
+        selectedVisitors: [...this.state.selectedVisitors, targetVisitor]
       })
     } else {
-      let visitorsArr = this.state.visitors
+      let visitorsArr = this.state.selectedVisitors
       let idx = visitorsArr.findIndex(visitor => visitor === targetVisitor)
-      let newVisitors = [...this.state.visitors.slice(0, idx), ...this.state.visitors.slice(idx + 1)]
+      let newVisitors = [...this.state.selectedVisitors.slice(0, idx), ...this.state.selectedVisitors.slice(idx + 1)]
       this.setState({
-        visitors: newVisitors
+        selectedVisitors: newVisitors
       })
     }
   }
 
-  renderVisitorHeaders = () => {
+  renderVisitorHeaders = (classes) => {
     if (this.props.visitors){
       return this.props.visitors.map(visitor => {
         return (
-          <VisitorBox key={visitor.name} visitor={visitor} handleOnChange={this.handleOnChange}/>
+          <Grid item xs={3} className={classes.visitorGrid}>
+            <Paper variant="outlined">
+              <VisitorBox key={visitor.name} visitor={visitor} handleOnChange={this.handleOnChange} displayCheckbox={true} />
+            </Paper>
+          </Grid>
         )
       })
     }
@@ -62,23 +80,19 @@ export class LogForm extends Component {
   }
 
   saveLog = () => {
-    this.props.saveLog(this.state.date, this.state.visitors)
-  }
-
-  getPrettyDate = (date) => {
-
+    this.props.saveLog(this.state.date, this.state.selectedVisitors)
   }
 
   render() {
+    const { classes } = this.props;
     return (
       <>
         <p className="date">{this.getWeekday()}</p><br />
         <label htmlFor="date">Date</label>
         <input type="date" value={this.state.date} id="date" min="2020-03-20" onChange={this.handleDateChange}/>
-        <div className="logTable"></div>
-          <div className="visitorHeaders">
-            {this.renderVisitorHeaders()} 
-          </div> <br />
+        <Grid container spacing={1}>
+          {this.renderVisitorHeaders(classes)} 
+        </Grid>
         <button onClick={this.saveLog}> Save Log </button>
       </>
     )
@@ -91,7 +105,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  saveLog: (date, visitors) => dispatch(saveLog(date, visitors))
+  saveLog: (date, visitors) => dispatch(saveLog(date, visitors)),
+  fetchVisitors: () => dispatch(fetchVisitors())
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogForm)
+export default withStyles(useStyles)(connect(mapStateToProps, mapDispatchToProps)(LogForm))

@@ -13,7 +13,6 @@ export class LogContainer extends Component {
   }
 
   handleOnClick = (date) => {
-    // debugger
     let targetLog = this.props.logs.find(prop => {
       return prop.date === date
     }) 
