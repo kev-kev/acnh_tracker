@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 import NavBar  from '../components/NavBar'
-import LogForm from './LogForm'
+
 import LogContainer from '../containers/LogContainer'
 import { logUserOut } from '../actions/userActions'
 import { fetchVisitors } from '../actions/visitorActions'

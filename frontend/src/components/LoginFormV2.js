@@ -83,7 +83,6 @@ class LoginForm extends Component {
 
     const displayAlert = () => {
       if(this.props.loginFailed === true){
-        console.log(this.props.loginFailed)
         return (
           <div className={classes.root}>
             <Alert severity="error">
@@ -92,8 +91,6 @@ class LoginForm extends Component {
             </Alert>     
           </div> 
         )
-      } else {
-        console.log("omghihihi")
       }
     }
 

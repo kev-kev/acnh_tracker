@@ -7,7 +7,7 @@ import LoginPage from '../containers/LoginPage'
 import UserPage from '../containers/UserPage'
 import Dashboard from '../dashboard/Dashboard'
 import UserPageV2 from '../containers/UserPageV2'
-import LogForm from '../containers/LogForm'
+import LogForm from '../components/LogFormV2'
 
 const Root = ({ store }) => (
   <Provider store={store}>

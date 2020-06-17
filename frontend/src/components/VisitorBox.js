@@ -10,7 +10,6 @@ import List from '@material-ui/core/List';
 
 
 const useStyles = makeStyles((theme) => {
-  console.log(theme)
   return {
   root: {
       display: 'flex',
@@ -37,25 +36,21 @@ const VisitorBox = (props) => {
   const classes = useStyles();
 
   return (
-    // <div>
-    //   <Avatar src={props.visitor.img} alt={props.visitor.name} className={classes.large}/><br />
-    //   <label>{props.visitor.name}</label><br />
-    // </div>
     <List>
-    <ListItem key={props.visitor.name} className={classes.listItem}>
-      <ListItemAvatar className={classes.avatar}>
-        <Avatar src={props.visitor.img} alt={props.visitor.name} className={classes.large}/>
-      </ListItemAvatar>
-      <ListItemText id={props.visitor.name} primary={props.visitor.name} />
-      {props.displayCheckbox ? 
-        <ListItemSecondaryAction>
-          <input type="checkbox" id={props.visitor.name} onChange={props.handleOnChange}/>
-        </ListItemSecondaryAction>
-        :
-        null
-      }
+      <ListItem key={props.visitor.name} className={classes.listItem}>
+        <ListItemAvatar className={classes.avatar}>
+          <Avatar src={props.visitor.img} alt={props.visitor.name} className={classes.large}/>
+        </ListItemAvatar>
+        <ListItemText id={props.visitor.name} primary={props.visitor.name} />
+        {props.displayCheckbox ? 
+          <ListItemSecondaryAction>
+            <input type="checkbox" id={props.visitor.name} onChange={props.handleOnChange}/>
+          </ListItemSecondaryAction>
+          :
+          null
+        }
       </ListItem>
-      </List>
+    </List>
 
 
   )

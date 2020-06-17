@@ -78,7 +78,6 @@ class SignupForm extends Component {
 
     const displayAlert = () => {
       if(this.props.signedUp){
-        console.log("signed up!")
         return(
           <div className={classes.root}>
             <Alert severity="success">
@@ -88,7 +87,6 @@ class SignupForm extends Component {
         </div> 
         )
       } else if(this.props.signedUp === false) {
-          console.log("signup failed!")
           return(
           <div className={classes.root}>
             <Alert severity="error">
