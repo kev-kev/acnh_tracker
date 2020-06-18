@@ -224,7 +224,7 @@ export class LogForm extends Component {
       })
     };
 
-    const customLink = props => <Link to={`/${this.props.username}`} />;
+    // const displayalert = () => {}
 
     return (
       <div className={classes.root}>
@@ -296,12 +296,10 @@ export class LogForm extends Component {
                 <Button variant="contained" color="primary" startIcon={<NoteAddIcon/>}onClick={this.saveLog}> Save Log </Button>
               </Grid>
             </Grid>
-            {/* <Box pt={4}>
-              <Copyright />
-            </Box> */}
           </Container>
         </main>
       </div>
+      // {displayAlert()}
     );
   }
 }
@@ -315,7 +313,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   saveLog: (date, visitors) => dispatch(saveLog(date, visitors)),
-  fetchVisitors: () => dispatch(fetchVisitors())
+  fetchVisitors: () => dispatch(fetchVisitors()),
 })
 
 export default withStyles(useStyles)(connect(mapStateToProps, mapDispatchToProps)(LogForm))

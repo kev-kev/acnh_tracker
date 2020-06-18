@@ -29,14 +29,13 @@ class LogsController < ApplicationController
     end
   end
 
-  # def edit
-  #   @log = Log.find(params[:id])
-  # end
-
-  # def update
-  #   @log = Log.find(params[:id])
-  #   @log.update(date: params[:date])
-  #   # update associated visitors here, but how....
-  # end
+  def delete
+    user = current_user
+    log = Log.where(user: user).find_by(date: params[:date]);
+    log.delete
+    user_logs = Log.all.select{ |log| log.user == user }
+    user_logs = user_logs.map{|log| {date: log.date, visitors: log.visitors} }
+    render json: {logs: user_logs}, status: :ok
+  end
 
 end

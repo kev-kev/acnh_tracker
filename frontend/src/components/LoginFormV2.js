@@ -13,8 +13,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { connect } from 'react-redux'
 import { fetchUser, userLoginFailed } from '../actions/userActions'
-import { Snackbar } from '@material-ui/core';
-import MuiAlert from '@material-ui/lab/Alert';
 import { Redirect } from 'react-router'
 import { Alert, AlertTitle } from '@material-ui/lab';
 import Paper from '@material-ui/core/Paper'

@@ -6,7 +6,6 @@ import ListItem from '@material-ui/core/ListItem';
 import Chip from '@material-ui/core/Chip';
 import { withStyles } from '@material-ui/core/styles';
 import EmojiNatureTwoToneIcon from '@material-ui/icons/EmojiNatureTwoTone';
-import { Link } from 'react-router-dom'
 
 const useStyles = theme => ({
   root: {
@@ -41,10 +40,21 @@ export class LogContainer extends Component {
 
   renderEmptyLogMessage = () => {
     if(this.props.logs.length === 0){
-      console.log("Empty!")
       return (
         <h3 className='emptyLog'> You haven't created any logs yet! </h3>
       )
+    }
+  }
+
+  renderChips = () => {
+    if (this.props.logs.length > 0){
+      return this.props.logs.map(log => {
+        return(
+          <ListItem>
+            <Chip color="primary" icon={<EmojiNatureTwoToneIcon />} key={log.date} label={this.getPrettyDate(log.date)} onClick={() => this.handleOnClick(log.date)} />
+          </ListItem>
+        )
+      })
     }
   }
 
@@ -53,13 +63,8 @@ export class LogContainer extends Component {
       <>
         {this.renderEmptyLogMessage()}
         <List className="logContainer">
-          {this.props.logs.map(log => {
-            return (
-              <ListItem>
-                <Chip color="primary" icon={<EmojiNatureTwoToneIcon />} key={log.date} label={this.getPrettyDate(log.date)} onClick={() => this.handleOnClick(log.date)} />
-              </ListItem>
-            )
-          })}
+          {/* create a new var, sort this.props.logs in there, then map through the sorted list */}
+          {this.renderChips()}
         </List>
       </>
     )

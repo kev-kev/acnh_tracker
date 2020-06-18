@@ -14,18 +14,18 @@ import { Alert, AlertTitle } from '@material-ui/lab';
 import Paper from '@material-ui/core/Paper'
 
 
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         KevKev Productions
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        KevDev Productions
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const useStyles = theme => ({
   root: {
@@ -191,9 +191,9 @@ class SignupForm extends Component {
             </form>
           </div>
           {displayAlert()}
-          {/* <Box mt={5}>
+          <Box mt={5}>
             <Copyright />
-          </Box> */}
+          </Box>
           </Paper>
       </Container>
     );

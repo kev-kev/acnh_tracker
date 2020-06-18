@@ -5,7 +5,7 @@ import VisitorBox from '../components/VisitorBox'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography';
 import Chip from '@material-ui/core/Chip'
-import { clearSelectedLog } from '../actions/logActions'
+import { clearSelectedLog, deleteLog } from '../actions/logActions'
 
 export class LogDisplay extends Component {
 
@@ -23,22 +23,28 @@ export class LogDisplay extends Component {
     }
   }
 
+  deleteAndRerender = () => {
+    this.props.deleteLog(this.props.selectedLog)
+    
+  }
+
   renderDisplay = () => {
-    if (this.props.selectedLog) {
-      console.log(this.props.selectedLog);
+    if (!this.props.selectedLog) {
+    return (<h3 className="displayPrompt"> Please select a log </h3>);
+    } else {
       return (
       <div>
         {this.displayedLog()}
         <Button variant="contained" color="primary" component={Link} to={`/log/${this.props.selectedLog.date}/edit`}> 
             Edit Log
+        </Button> <br />
+        <Button variant="contained" color="secondary" onClick={() => this.deleteAndRerender()}> 
+            Delete Log
         </Button>
       </div>
       )
-    } else {
-      return (
-        <h3 className="displayPrompt"> Please select a log </h3>
-      )
     }
+    
     
   }
 
@@ -82,11 +88,12 @@ export class LogDisplay extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  selectedLog: state.logReducer.selectedLog
+  selectedLog: state.logReducer.selectedLog,
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  clearSelectedLog: () => dispatch(clearSelectedLog())
+  clearSelectedLog: () => dispatch(clearSelectedLog()),
+  deleteLog: (log) => dispatch(deleteLog(log))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(LogDisplay)

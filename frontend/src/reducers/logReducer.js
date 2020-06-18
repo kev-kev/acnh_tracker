@@ -34,11 +34,17 @@ const logReducer = (state = defaultState, action) => {
           ...state,
           selectedLog: action.payload,
         }
-      case "CLEAR_LOG":
-        return {
-          ...state,
-          selectedLog: null
-        }
+    case "CLEAR_LOG":
+      return {
+        ...state,
+        selectedLog: null
+      }
+    case "DELETE_LOG":
+      return {
+        ...state,
+        logs: action.payload,
+        selectedLog: null
+      }
       
     default: return state
   }

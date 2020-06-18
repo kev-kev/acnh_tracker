@@ -7,6 +7,8 @@ const logFetchSuccess = (payload) => ({type: "LOG_FETCH_SUCCESS", payload})
 const setLog = (payload) => ({type: "SELECT_LOG", payload})
 const clearLog = () => ({type: "CLEAR_LOG"})
 
+const removeLog = (payload) => ({type: "DELETE_LOG", payload})
+
 
 export const saveLog = (date, visitors) => dispatch => {
   dispatch(savingLog())
@@ -49,6 +51,25 @@ export const fetchLogs = () => dispatch => {
     })
 }
 
+export const deleteLog = (log) => dispatch => {
+  console.log(log)
+  fetch(`http://localhost:4000/logs/`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("token")}`,
+    },
+    body: JSON.stringify(log)
+  })
+    .then(r => {
+      console.log(r)
+      return r.json()
+    })
+    .then(data => {
+      console.log(data)
+      dispatch(removeLog(data["logs"]))
+    })
+}
 
 
 export const selectLog = (log) => dispatch => {

@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   post '/log/save', to: 'logs#save'
   get '/log/:id/edit', to: 'logs#edit'
   patch '/log/:id', to: 'logs#update'
+  delete '/logs/', to: 'logs#delete'
   
 end
