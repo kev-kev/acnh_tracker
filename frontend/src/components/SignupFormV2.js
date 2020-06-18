@@ -11,6 +11,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { signUserUp } from '../actions/userActions'
 import { Alert, AlertTitle } from '@material-ui/lab';
+import Paper from '@material-ui/core/Paper'
+
 
 // function Copyright() {
 //   return (
@@ -49,6 +51,11 @@ const useStyles = theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  signupFormPaper: {
+    width: '100%',
+    margin: '50px',
+    padding: '20px '
+  }
 });
 
 class SignupForm extends Component {
@@ -102,90 +109,92 @@ class SignupForm extends Component {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <div className={classes.paper}>
-        <Typography component="h1" variant="h4">
-            My Island Tracker
-          </Typography>
-          <img src={require('../assets/images/leaf.png')} alt="leaf" height="100"/>
-          <Typography component="h1" variant="h5">
-            Sign up
-          </Typography>
-          <form className={classes.form} noValidate autoComplete="off" onSubmit={this.onSubmit}>
-            <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  name="username"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="username"
-                  label="Username"
-                  autoFocus
-                  value={this.state.username} 
-                  onChange={this.handleOnChange}
-                />
+        <Paper className={classes.signupFormPaper}>
+          <div className={classes.paper}>
+          <Typography component="h1" variant="h4">
+              My Island Tracker
+            </Typography>
+            <img src={require('../assets/images/leaf.png')} alt="leaf" height="100"/>
+            <Typography component="h1" variant="h5">
+              Sign up
+            </Typography>
+            <form className={classes.form} noValidate autoComplete="off" onSubmit={this.onSubmit}>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    name="username"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="username"
+                    label="Username"
+                    autoFocus
+                    value={this.state.username} 
+                    onChange={this.handleOnChange}
+                  />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="islandName"
+                    label="Island Name"
+                    name="island_name"
+                    value={this.state.island_name} 
+                    onChange={this.handleOnChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    type="password"
+                    id="password"
+                    label="Password"
+                    name="password"
+                    value={this.state.password} 
+                    onChange={this.handleOnChange}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="password_confirmation"
+                    label="Confirm Password"
+                    type="password"
+                    id="password"
+                    value={this.state.passwordConfirmation} 
+                    onChange={this.handleOnChange}
+                  />
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="islandName"
-                  label="Island Name"
-                  name="island_name"
-                  value={this.state.island_name} 
-                  onChange={this.handleOnChange}
-                />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+              >
+                Sign Up
+              </Button>
+              <Grid container justify="flex-end">
+                <Grid item>
+                  <Link href="/login" variant="body2">
+                    Already have an account? Sign in
+                  </Link> <br />
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  type="password"
-                  id="password"
-                  label="Password"
-                  name="password"
-                  value={this.state.password} 
-                  onChange={this.handleOnChange}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
-                  fullWidth
-                  name="password_confirmation"
-                  label="Confirm Password"
-                  type="password"
-                  id="password"
-                  value={this.state.passwordConfirmation} 
-                  onChange={this.handleOnChange}
-                />
-              </Grid>
-            </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign Up
-            </Button>
-            <Grid container justify="flex-end">
-              <Grid item>
-                <Link href="/login" variant="body2">
-                  Already have an account? Sign in
-                </Link> <br />
-              </Grid>
-            </Grid>
-          </form>
-        </div>
-        {displayAlert()}
-        {/* <Box mt={5}>
-          <Copyright />
-        </Box> */}
+            </form>
+          </div>
+          {displayAlert()}
+          {/* <Box mt={5}>
+            <Copyright />
+          </Box> */}
+          </Paper>
       </Container>
     );
   }

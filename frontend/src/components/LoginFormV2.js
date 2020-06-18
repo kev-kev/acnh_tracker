@@ -56,7 +56,7 @@ const useStyles = theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-  signinFormPaper: {
+  loginFormPaper: {
     width: '100%',
     margin: '50px',
     padding: '20px'
@@ -115,7 +115,7 @@ class LoginForm extends Component {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
-        <Paper className={classes.signinFormPaper}>
+        <Paper className={classes.loginFormPaper}>
         <div className={classes.paper}>
           <Typography component="h1" variant="h4" color="inherit" noWrap className={classes.title}>
               My Island Tracker
