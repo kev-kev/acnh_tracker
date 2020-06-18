@@ -17,19 +17,20 @@ import { Snackbar } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import { Redirect } from 'react-router'
 import { Alert, AlertTitle } from '@material-ui/lab';
+import Paper from '@material-ui/core/Paper'
 
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         KevKev Productions
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        KevKev Productions
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 const useStyles = theme => ({
   root: {
@@ -55,6 +56,11 @@ const useStyles = theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  signinFormPaper: {
+    width: '100%',
+    margin: '50px',
+    padding: '20px'
+  }
 });
 
 class LoginForm extends Component {  
@@ -109,7 +115,11 @@ class LoginForm extends Component {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        <Paper className={classes.signinFormPaper}>
         <div className={classes.paper}>
+          <Typography component="h1" variant="h4" color="inherit" noWrap className={classes.title}>
+              My Island Tracker
+          </Typography>
           <img src={require('../assets/images/leaf.png')} alt="leaf" height="100"/>
           <Typography component="h1" variant="h5">
             Sign in
@@ -154,9 +164,9 @@ class LoginForm extends Component {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2" onClick={() => handleForgotPassword()}>
+                {/* <Link href="#" variant="body2" onClick={() => handleForgotPassword()}>
                   Forgot password?
-                </Link>
+                </Link> */}
               </Grid>
               <Grid item>
                 <Link href="/" variant="body2">
@@ -167,9 +177,10 @@ class LoginForm extends Component {
           </form>
         </div>
         {displayAlert()}
-        {/* <Box mt={8}>
+        <Box mt={8}>
           <Copyright />
-        </Box> */}
+        </Box>
+        </Paper>
       </Container>
       );} else {
         return (

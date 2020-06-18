@@ -36,7 +36,7 @@ export class LogDisplay extends Component {
       )
     } else {
       return (
-        <p> Please select a log </p>
+        <h3 className="displayPrompt"> Please select a log </h3>
       )
     }
     

@@ -9,7 +9,7 @@ import Root from './components/Root'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import 'fontsource-roboto';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 
 const store = createStore(rootReducer, composeWithDevTools(
@@ -19,11 +19,20 @@ const store = createStore(rootReducer, composeWithDevTools(
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#388e3c',
+      main: '#26a69a',
     },
     secondary: {
-      main: '#81c784',
+      main: '#69f0ae',
     },
+  },
+  overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        body: {
+          backgroundImage: "url(https://acnh-tracker-imgs.s3.amazonaws.com/background.png)"
+        }
+      }
+    }
   }
 });
 

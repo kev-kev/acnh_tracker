@@ -103,6 +103,9 @@ class SignupForm extends Component {
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
+        <Typography component="h1" variant="h4">
+            My Island Tracker
+          </Typography>
           <img src={require('../assets/images/leaf.png')} alt="leaf" height="100"/>
           <Typography component="h1" variant="h5">
             Sign up
