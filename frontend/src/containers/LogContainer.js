@@ -6,7 +6,6 @@ import ListItem from '@material-ui/core/ListItem';
 import Chip from '@material-ui/core/Chip';
 import { withStyles } from '@material-ui/core/styles';
 import NoteIcon from '@material-ui/icons/Note';
-import Button from '@material-ui/core/Button'
 import { Link } from 'react-router-dom'
 
 const useStyles = theme => ({
@@ -34,12 +33,11 @@ export class LogContainer extends Component {
 
   }
 
+  // convert YYYY-MM-DD to MM/DD/YYYY
   getPrettyDate = (date) => {
-    const prettyDate = new Date(date).toLocaleDateString()
-    return prettyDate
+    const parts = date.split('-')
+    return parts[1] + "/" + parts[2] + "/" + parts[0]
   }
-
-  
 
   render() {
     return (

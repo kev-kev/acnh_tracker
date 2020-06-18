@@ -30,18 +30,18 @@ import HomeIcon from '@material-ui/icons/Home';
 import { Link as RouteLink } from 'react-router-dom';
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        KevKev Productions
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="textSecondary" align="center">
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://material-ui.com/">
+//         KevKev Productions
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   )
+// }
 
 const drawerWidth = 240;
 
@@ -306,9 +306,9 @@ export class LogForm extends Component {
                 <Button variant="contained" color="primary" startIcon={<NoteAddIcon/>}onClick={this.saveLog}> Save Log </Button>
               </Grid>
             </Grid>
-            <Box pt={4}>
+            {/* <Box pt={4}>
               <Copyright />
-            </Box>
+            </Box> */}
           </Container>
         </main>
       </div>

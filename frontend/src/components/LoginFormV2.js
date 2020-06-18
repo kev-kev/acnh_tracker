@@ -18,18 +18,18 @@ import MuiAlert from '@material-ui/lab/Alert';
 import { Redirect } from 'react-router'
 import { Alert, AlertTitle } from '@material-ui/lab';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        KevKev Productions
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="textSecondary" align="center">
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://material-ui.com/">
+//         KevKev Productions
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
+// }
 
 const useStyles = theme => ({
   root: {
@@ -167,9 +167,9 @@ class LoginForm extends Component {
           </form>
         </div>
         {displayAlert()}
-        <Box mt={8}>
+        {/* <Box mt={8}>
           <Copyright />
-        </Box>
+        </Box> */}
       </Container>
       );} else {
         return (

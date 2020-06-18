@@ -4,8 +4,14 @@ import { Link } from 'react-router-dom'
 import VisitorBox from '../components/VisitorBox'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip'
+import { clearSelectedLog } from '../actions/logActions'
 
 export class LogDisplay extends Component {
+
+  componentDidMount(){
+    this.props.clearSelectedLog()
+  }
 
   displayedLog = () => {
     if(this.props.selectedLog.visitors.length > 0){
@@ -21,34 +27,56 @@ export class LogDisplay extends Component {
     if (this.props.selectedLog) {
       console.log(this.props.selectedLog);
       return (
-      <>
+      <div>
         {this.displayedLog()}
         <Button variant="contained" color="primary" component={Link} to={`/log/${this.props.selectedLog.date}/edit`}> 
             Edit Log
-        </Button> <br />
-      </>
+        </Button>
+      </div>
       )
     } else {
       return (
-        <p> No log exists for selected date. </p>
+        <p> Please select a log </p>
       )
     }
     
   }
 
+  getWeekday = (date) => {
+    let d = new Date(date)
+    let weekday = new Array(7)
+    weekday[0] = "Monday";
+    weekday[1] = "Tuesday";
+    weekday[2] = "Wednesday";
+    weekday[3] = "Thursday";
+    weekday[4] = "Friday";
+    weekday[5] = "Saturday";
+    weekday[6] = "Sunday";
+    return weekday[d.getDay()]
+  }
+
   renderDate = () => {
     if(this.props.selectedLog){
-
+      console.log(this.props.selectedLog.date)
+      const parts = this.props.selectedLog.date.split('-')
+      const prettyDate = parts[1] + "/" + parts[2] + "/" + parts[0]
+      return (
+        <div className="logDisplayDate">
+          <Chip color="primary" key={this.props.selectedLog.date} label={prettyDate} /><br />
+          <Typography variant="subtitle">  {this.getWeekday(this.props.selectedLog.date)}</Typography>
+        </div>
+      )
+    } else {
+      return ""
     }
   }
 
   render() {
     return (
-      <div>
-        Log Display <br />
+      <>
+        {this.renderDate()} <br />
         {this.renderDisplay()} <br />
-
-      </div>
+      </>
     )
   }
 }
@@ -57,4 +85,8 @@ const mapStateToProps = (state) => ({
   selectedLog: state.logReducer.selectedLog
 })
 
-export default connect(mapStateToProps)(LogDisplay)
+const mapDispatchToProps = (dispatch) => ({
+  clearSelectedLog: () => dispatch(clearSelectedLog())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LogDisplay)

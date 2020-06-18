@@ -25,20 +25,22 @@ import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import { Redirect } from 'react-router'
 import Button from '@material-ui/core/Button'
+import { Link as RouterLink } from 'react-router-dom'
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        KevKev Productions
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="textSecondary" align="center">
+//       {'Copyright © '}
+//       <Link color="inherit" href="https://material-ui.com/">
+//         KevKev Productions
+//       </Link>{' '}
+//       {new Date().getFullYear()}
+//       {'.'}
+//     </Typography>
+//   );
+// }
 
 const drawerWidth = 240;
 
@@ -117,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: '100%',
   },
   newLogButton: {
     // no matter what i tried otherwise, MuiTypography is overriding the button style
@@ -191,7 +193,7 @@ export default function Dashboard(props) {
               <Paper className={fixedHeightPaper}>
                 <LogContainer />
               </Paper> <br />
-            <Button variant="contained" color="primary" component={Link} to="/log/new" className={classes.newLogButton}> 
+            <Button variant="contained" color="primary" component={RouterLink} to={"/log/new"} className={classes.newLogButton}> 
                 Create New Log
               </Button>
             </Grid>
@@ -201,9 +203,9 @@ export default function Dashboard(props) {
               </Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
+          {/* <Box pt={4}>
             <Copyright />
-          </Box>
+          </Box> */}
         </Container>
       </main>
     </div>

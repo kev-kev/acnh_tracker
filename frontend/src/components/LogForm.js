@@ -25,8 +25,10 @@ export class LogForm extends Component {
 
   componentDidMount(){
     this.props.fetchVisitors()
+    let newDate = new Date()
+    let modifiedDate =  (newDate.getMonth() + 1) + '/' + newDate.getDate() + '/' +  newDate.getFullYear();
     this.setState({
-      date: new Date().toISOString().substr(0,10)
+      date: modifiedDate
     })
   }
 

@@ -5,6 +5,7 @@ const fetchingLogs = () => ({type: "FETCHING_LOGS"})
 const logFetchSuccess = (payload) => ({type: "LOG_FETCH_SUCCESS", payload})
 
 const setLog = (payload) => ({type: "SELECT_LOG", payload})
+const clearLog = () => ({type: "CLEAR_LOG"})
 
 
 export const saveLog = (date, visitors) => dispatch => {
@@ -52,4 +53,8 @@ export const fetchLogs = () => dispatch => {
 
 export const selectLog = (log) => dispatch => {
   dispatch(setLog(log))
+}
+
+export const clearSelectedLog = () => dispatch => {
+  dispatch(clearLog())
 }
