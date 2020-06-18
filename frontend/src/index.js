@@ -8,13 +8,29 @@ import rootReducer from './reducers/index'
 import Root from './components/Root'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import 'fontsource-roboto';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+
 
 const store = createStore(rootReducer, composeWithDevTools(
   applyMiddleware(thunk)
   ))
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#388e3c',
+    },
+    secondary: {
+      main: '#81c784',
+    },
+  }
+});
+
 ReactDOM.render(
-  <Root store={store}/>,
+  <MuiThemeProvider theme={theme}>
+    <Root store={store}/>
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 

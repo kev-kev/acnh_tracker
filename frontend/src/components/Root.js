@@ -4,8 +4,6 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import App from '../App'
 import LoginPage from '../containers/LoginPage'
-import UserPage from '../containers/UserPage'
-import Dashboard from '../dashboard/Dashboard'
 import UserPageV2 from '../containers/UserPageV2'
 import LogForm from '../components/LogFormV2'
 
