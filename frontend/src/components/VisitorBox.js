@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => {
     'margin-right': theme.spacing(1)
   },
   listItem: {
-    'list-style': 'none'
+    'list-style': 'none',
   }
   };
 });

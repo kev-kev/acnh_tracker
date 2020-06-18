@@ -37,14 +37,6 @@
   }
 }
 
-.signup-form{
-  
-}
-
-.switch{
-  
-}
-
 .visitorIMG{
   height: 50px;
   width: 50px;
@@ -62,18 +54,13 @@
 
 .logForm{
   display: flex;
-  /* justify-content: center; */
 }
-
-/* .logRow{
-  display: flex;
-  justify-content: center;
-} */
-
-/* .logDisplayDate{
-  text-align: center;
-} */
 
 .displayPrompt{
   text-align: center;
+}
+
+.emptyLog{
+  text-align: center;
+  padding: 20px;
 }

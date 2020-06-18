@@ -27,21 +27,6 @@ import { Redirect } from 'react-router'
 import Button from '@material-ui/core/Button'
 import { Link as RouterLink } from 'react-router-dom'
 
-
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         KevKev Productions
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   );
-// }
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({

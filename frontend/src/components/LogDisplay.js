@@ -59,11 +59,11 @@ export class LogDisplay extends Component {
     if(this.props.selectedLog){
       console.log(this.props.selectedLog.date)
       const parts = this.props.selectedLog.date.split('-')
-      const prettyDate = parts[1] + "/" + parts[2] + "/" + parts[0]
+      const headerDate = parts[1] + "/" + parts[2] + "/" + parts[0]
       return (
         <div className="logDisplayDate">
-          <Chip color="primary" key={this.props.selectedLog.date} label={prettyDate} /><br />
-          <Typography variant="subtitle">  {this.getWeekday(this.props.selectedLog.date)}</Typography>
+          <Typography variant="h6">{headerDate}</Typography>
+          <Typography variant="subtitle"> {this.getWeekday(this.props.selectedLog.date)}</Typography>
         </div>
       )
     } else {

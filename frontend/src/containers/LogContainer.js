@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Chip from '@material-ui/core/Chip';
 import { withStyles } from '@material-ui/core/styles';
-import NoteIcon from '@material-ui/icons/Note';
+import EmojiNatureTwoToneIcon from '@material-ui/icons/EmojiNatureTwoTone';
 import { Link } from 'react-router-dom'
 
 const useStyles = theme => ({
@@ -39,14 +39,24 @@ export class LogContainer extends Component {
     return parts[1] + "/" + parts[2] + "/" + parts[0]
   }
 
+  renderEmptyLogMessage = () => {
+    if(this.props.logs.length === 0){
+      console.log("Empty!")
+      return (
+        <h3 className='emptyLog'> You haven't created any logs yet! </h3>
+      )
+    }
+  }
+
   render() {
     return (
       <>
+        {this.renderEmptyLogMessage()}
         <List className="logContainer">
           {this.props.logs.map(log => {
             return (
               <ListItem>
-                <Chip color="primary" icon={<NoteIcon />} key={log.date} label={this.getPrettyDate(log.date)} onClick={() => this.handleOnClick(log.date)} />
+                <Chip color="primary" icon={<EmojiNatureTwoToneIcon />} key={log.date} label={this.getPrettyDate(log.date)} onClick={() => this.handleOnClick(log.date)} />
               </ListItem>
             )
           })}

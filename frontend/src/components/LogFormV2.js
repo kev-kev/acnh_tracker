@@ -29,20 +29,6 @@ import NoteAddIcon from '@material-ui/icons/NoteAdd';
 import HomeIcon from '@material-ui/icons/Home';
 import { Link as RouteLink } from 'react-router-dom';
 
-
-// function Copyright() {
-//   return (
-//     <Typography variant="body2" color="textSecondary" align="center">
-//       {'Copyright © '}
-//       <Link color="inherit" href="https://material-ui.com/">
-//         KevKev Productions
-//       </Link>{' '}
-//       {new Date().getFullYear()}
-//       {'.'}
-//     </Typography>
-//   )
-// }
-
 const drawerWidth = 240;
 
 const useStyles = theme => ({
@@ -134,16 +120,18 @@ const useStyles = theme => ({
    margin: '10px',
  },
  selectedDate: {
-   'text-align': 'center'
+   'text-align': 'center',
+   'padding-top': '20px'
  },
  dateLabel: {
    padding: '10px'
+ },
+ dateInput: {
+   'padding-left': '50px'
  }
 });
 
 export class LogForm extends Component {
-  // classes = useStyles();
-
   state = {
     date: "",
     selectedVisitors: [],
@@ -295,8 +283,10 @@ export class LogForm extends Component {
                 <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.selectedDate}>
                  {this.getWeekday()}
                 </Typography>
-                  <label htmlFor="date" className={classes.dateLabel}>Select Date</label><br />
-                  <input type="date" value={this.state.date} className={classes.date} min="2020-03-20" onChange={this.handleDateChange}/>
+                  <div className={classes.dateInput}>
+                    <label htmlFor="date" className={classes.dateLabel}>Select Date</label><br />
+                    <input type="date" value={this.state.date} className={classes.date} min="2020-03-20" onChange={this.handleDateChange}/>
+                  </div>
                   <Grid container spacing={1} className={classes.visitorGrid}>
                     {this.renderVisitorHeaders(classes)} 
                   </Grid>
