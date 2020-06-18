@@ -24,6 +24,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import HomeIcon from '@material-ui/icons/Home';
 import { Redirect } from 'react-router'
+import Button from '@material-ui/core/Button'
+
 
 function Copyright() {
   return (
@@ -117,6 +119,10 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  newLogButton: {
+    // no matter what i tried otherwise, MuiTypography is overriding the button style
+    color: '#fff!important;'
+  }
 }));
 
 export default function Dashboard(props) {
@@ -184,7 +190,10 @@ export default function Dashboard(props) {
             <Grid item xs={6}>
               <Paper className={fixedHeightPaper}>
                 <LogContainer />
-              </Paper>
+              </Paper> <br />
+            <Button variant="contained" color="primary" component={Link} to="/log/new" className={classes.newLogButton}> 
+                Create New Log
+              </Button>
             </Grid>
             <Grid item xs={6}>
               <Paper className={classes.paper}>

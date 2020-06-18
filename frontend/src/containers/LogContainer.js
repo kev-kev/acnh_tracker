@@ -6,6 +6,8 @@ import ListItem from '@material-ui/core/ListItem';
 import Chip from '@material-ui/core/Chip';
 import { withStyles } from '@material-ui/core/styles';
 import NoteIcon from '@material-ui/icons/Note';
+import Button from '@material-ui/core/Button'
+import { Link } from 'react-router-dom'
 
 const useStyles = theme => ({
   root: {
@@ -37,17 +39,21 @@ export class LogContainer extends Component {
     return prettyDate
   }
 
+  
+
   render() {
     return (
-      <List className="logContainer">
-        {this.props.logs.map(log => {
-          return (
-            <ListItem>
-              <Chip color="primary" icon={<NoteIcon />} key={log.date} label={this.getPrettyDate(log.date)} onClick={() => this.handleOnClick(log.date)} />
-            </ListItem>
-          )
-        })}
-      </List>
+      <>
+        <List className="logContainer">
+          {this.props.logs.map(log => {
+            return (
+              <ListItem>
+                <Chip color="primary" icon={<NoteIcon />} key={log.date} label={this.getPrettyDate(log.date)} onClick={() => this.handleOnClick(log.date)} />
+              </ListItem>
+            )
+          })}
+        </List>
+      </>
     )
   }
 }

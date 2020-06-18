@@ -5,9 +5,6 @@ import VisitorBox from '../components/VisitorBox'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography';
 
-
-
-
 export class LogDisplay extends Component {
 
   displayedLog = () => {
@@ -39,14 +36,18 @@ export class LogDisplay extends Component {
     
   }
 
+  renderDate = () => {
+    if(this.props.selectedLog){
+
+    }
+  }
+
   render() {
     return (
       <div>
         Log Display <br />
         {this.renderDisplay()} <br />
-        <Button variant="contained" color="primary" component={Link} to="/log/new"> 
-            Create New Log
-        </Button> <br />
+
       </div>
     )
   }
