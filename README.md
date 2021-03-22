@@ -2,6 +2,8 @@
 
 ### Tracking tool for the video game Animal Crossing: New Horizons!
 
+<img src="acnh-tracker.png" width="700"/>
+
 ## 1. Install dependencies:
 
 Navigate to the cloned repo's directory and cd into the frontend folder.
